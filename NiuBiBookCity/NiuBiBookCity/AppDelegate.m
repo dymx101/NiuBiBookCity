@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "BMFramework.h"
+#import "BCTBookModel.h"
+#import "DefineHeader.h"
 
 @interface AppDelegate ()
 
@@ -16,35 +19,56 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self testSearch];
+    
     return YES;
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)testSearch {
+    //实例化一个传入传出参数
+    BMBaseParam* baseparam = [BMBaseParam new];
+    
+    //参数
+    baseparam.paramString = @"盗墓";
+    baseparam.paramInt = 0;
+    
+    __weak BMBaseParam *weakBaseParam = baseparam;
+    baseparam.withresultobjectblock = ^(int intError,NSString* strMsg,id obj) {
+        
+        [weakBaseParam reducePendingCallbacks];
+        
+        if (intError == 0) {
+            
+            NSArray *books = weakBaseParam.resultArray;
+            
+            if (books.count > 0) {
+                NSArray *sortedBooks = [books sortedArrayUsingComparator:^NSComparisonResult(BCTBookModel * _Nonnull obj1, BCTBookModel * _Nonnull obj2) {
+                    
+                    NSInteger quality1 = [obj1 quality];
+                    NSInteger quality2 = [obj2 quality];
+                    
+                    if (quality1 > quality2) {
+                        return NSOrderedAscending;
+                    } else if (quality1 < quality2) {
+                        return NSOrderedDescending;
+                    }
+                    
+                    return NSOrderedSame;
+                }];
+                
+                NSLog(@"%@", sortedBooks);
+                
+            }
+        }
+    };
+    
+    NSMutableDictionary* dicParam = [NSMutableDictionary createParamDic];
+    [dicParam setActionID:DEF_ACTIONID_BOOKACTION strcmd:DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT];
+    [dicParam setParam:baseparam];
+    
+    [SharedControl excute:dicParam];
 }
 
 

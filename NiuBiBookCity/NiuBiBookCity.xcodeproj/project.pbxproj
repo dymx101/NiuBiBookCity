@@ -951,6 +951,7 @@
 				A656A18A1E9F343D0062C936 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A656A18B1E9F343D0062C936 /* Build configuration list for PBXNativeTarget "NiuBiBookCityTests" */ = {
 			isa = XCConfigurationList;
@@ -959,6 +960,7 @@
 				A656A18D1E9F343D0062C936 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

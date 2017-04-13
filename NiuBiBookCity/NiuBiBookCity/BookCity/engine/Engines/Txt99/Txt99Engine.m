@@ -341,26 +341,19 @@ strResult = [NSString stringWithFormat:@"http://img.txt99.cc/Cover/%@/%@.jpg",st
 
 #pragma mark-  getBookChapterList
 
--(void)getBookChapterList:(BMBaseParam*)baseParam
-{
-    //NSString *strUrlParam = [NSString stringWithFormat:baseParam.paramString ,(long)baseParam.paramInt];
-    
+-(void)getBookChapterList:(BMBaseParam*)baseParam {
     NSString *strUrlParam = baseParam.paramString;
-    
     NSString *strUrl = [strUrlParam stringByReplacingOccurrencesOfString:self.sessionManager.baseURLString withString:@""];
     
     [self.sessionManager GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
-        
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         baseParam.resultArray = [self getChapterList:responseStr url:strUrlParam];
-        
         
         if (baseParam.withresultobjectblock) {
             baseParam.withresultobjectblock(0,@"",nil);
         }
         
-    } failure:^(NSURLSessionDataTask *__unused task, NSError *error)
-     {
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
          NSLog(@"%@",[error userInfo]);
          if (baseParam.withresultobjectblock) {
              baseParam.withresultobjectblock(-1,@"",nil);
@@ -374,7 +367,6 @@ strResult = [NSString stringWithFormat:@"http://img.txt99.cc/Cover/%@/%@.jpg",st
 
     strSource = [BCTBookAnalyzer firstMatchGroupInSoure:strSource pattern:@"<div class=\"read_list\">([\\s\\S]*?)</div>"];
     
-    
     NSMutableArray *aryChapterList = [NSMutableArray new];
     
     NSString *pattern = @"<a href=\"[^\"]*\" title=\"[^\"]*\">";
@@ -383,73 +375,51 @@ strResult = [NSString stringWithFormat:@"http://img.txt99.cc/Cover/%@/%@.jpg",st
     for (NSTextCheckingResult *match in results) {
         
         BCTBookChapterModel *bookchaptermodel = [BCTBookChapterModel new];
+        bookchaptermodel.hostUrl = self.sessionManager.baseURLString;
+        [aryChapterList addObject:bookchaptermodel];
+        
         NSString* substringForMatch = [strSource substringWithRange:match.range];
-//        NSLog(@"chapter list: %@",substringForMatch);
-
-             //NSString *strPatternListDetail = @"<a href=\"(.*[^\"])\">(.*[^<])</a>";
         NSString *strPatternListDetail = @"<a href=\"([^\"]*)\" title=\"([^\"]*)\">";
+        
         NSRegularExpression *regular = [[NSRegularExpression alloc]initWithPattern:strPatternListDetail options:NSRegularExpressionCaseInsensitive error:nil];
         NSArray *matchs = [regular matchesInString:substringForMatch options:0 range:NSMakeRange(0, substringForMatch.length)];
         
-            if ([matchs count]>0) {
-        
-                NSTextCheckingResult *match2 = [matchs objectAtIndex:0];
-        
-                
-                bookchaptermodel.url = [substringForMatch substringWithRange:[match2 rangeAtIndex:1]];
-                
-                
-//                NSString* strChapterUrlBase = [strUrl stringByDeletingLastPathComponent];
-//                bookchaptermodel.url = [NSString stringWithFormat:@"%%@",strUrl,bookchaptermodel.url];
-                
-                bookchaptermodel.title = [substringForMatch substringWithRange:[match2 rangeAtIndex:2]];
-            }
-        bookchaptermodel.hostUrl = self.sessionManager.baseURLString;
-        [aryChapterList addObject:bookchaptermodel];
+        if ([matchs count] > 0) {
+            NSTextCheckingResult *match2 = [matchs objectAtIndex:0];
+            bookchaptermodel.url = [substringForMatch substringWithRange:[match2 rangeAtIndex:1]];
+            bookchaptermodel.title = [substringForMatch substringWithRange:[match2 rangeAtIndex:2]];
+        }
     }
     
-    
-    
-    
     return aryChapterList;
-    
-    
-    
-    
 }
 
 
 #pragma mark-  getBookChapterDetail
-
--(void)getBookChapterDetail:(BMBaseParam*)baseParam
-{
-    //paramString2 保存chapterDetail url
+-(void)getBookChapterDetail:(BMBaseParam*)baseParam {
+    // paramString2 保存chapterDetail url
     NSString *strUrl = baseParam.paramString2;
-    
     strUrl = [strUrl stringByReplacingOccurrencesOfString:self.sessionManager.baseURLString withString:@""];
-    //    __weak BMBaseParam *weakBaseParam = baseParam;
+    
     __weak Txt99Engine *weakSelf = self;
     [self.sessionManager GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
         
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
-//        NSLog(@"%@",responseStr);
         baseParam.resultString = [weakSelf getChapterContent:responseStr];
         
         BCTBookChapterModel* bookchaptermodel = (BCTBookChapterModel*)baseParam.paramObject;
         bookchaptermodel.content = [baseParam.resultString trimHtmlContent];
         bookchaptermodel.htmlContent = baseParam.resultString;
+        
         if (baseParam.withresultobjectblock) {
             baseParam.withresultobjectblock(0,@"",nil);
         }
         
-    } failure:^(NSURLSessionDataTask *__unused task, NSError *error)
-     {
-         NSLog(@"%@",[error userInfo]);
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
          if (baseParam.withresultobjectblock) {
              baseParam.withresultobjectblock(-1,@"",nil);
          }
-         
      }];
 }
 

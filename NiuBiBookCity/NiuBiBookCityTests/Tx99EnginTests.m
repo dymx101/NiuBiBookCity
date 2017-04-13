@@ -14,7 +14,7 @@
 #import "BCTBookChapterModel.h"
 
 static const CGFloat unitTestTimeout = 10;
-static const BOOL unitTestEnableLogging = true;
+static const BOOL unitTestEnableLogging = false;
 
 @interface Tx99EnginTests : XCTestCase
 @property (nonatomic, strong) Txt99Engine *engine;
@@ -35,7 +35,7 @@ static const BOOL unitTestEnableLogging = true;
     [super tearDown];
 }
 
-- (void)testSearch {
+- (void)test1_Search {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testSearch"];
     
     BMBaseParam* baseparam = [BMBaseParam new];
@@ -69,7 +69,7 @@ static const BOOL unitTestEnableLogging = true;
     }];
 }
 
-- (void)testGetChapterList {
+- (void)test2_GetChapterList {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testGetChapterList"];
     
     BMBaseParam* baseparam = [BMBaseParam new];
@@ -104,7 +104,7 @@ static const BOOL unitTestEnableLogging = true;
 }
 
 //HostURL:, URL:
-- (void)testGetBookChapterDetail {
+- (void)test3_GetBookChapterDetail {
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"testGetChapterList"];
     

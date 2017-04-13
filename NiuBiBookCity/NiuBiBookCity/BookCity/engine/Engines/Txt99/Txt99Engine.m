@@ -68,7 +68,11 @@
     baseParam.paramInt--;
     NSString *strUrl = [NSString stringWithFormat:@"/cse/search?q=%@&p=%ld&s=10722981113312165527",strKeyWord,(long)baseParam.paramInt];
 
-    strUrl = [strUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated"
+    strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#pragma GCC diagnostic pop
+    
     [[self sessionManagerZhanneiBaidu] GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
         
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];

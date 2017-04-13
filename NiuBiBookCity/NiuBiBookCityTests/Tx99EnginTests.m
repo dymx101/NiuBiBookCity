@@ -44,7 +44,10 @@
         if (intError == 0) {
             
             NSArray *books = weakBaseParam.resultArray;
-            NSLog(@"%@", books.firstObject);
+            if ([books.firstObject isKindOfClass:[BCTBookModel class]]) {
+                NSString *link = ((BCTBookModel *)books.firstObject).bookLink;
+                NSLog(@"Book Link: %@", link);
+            }
             [expectation fulfill];
             
         }
@@ -57,6 +60,10 @@
             NSLog(@"%s Error: %@", __PRETTY_FUNCTION__, error);
         }
     }];
+}
+
+- (void)test {
+    @"http://www.txt99.cc/readbook/17068.html";
 }
 
 

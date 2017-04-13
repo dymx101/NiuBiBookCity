@@ -13,3 +13,8 @@ end
 target 'NiuBiBookCity' do
     main_pods
 end
+
+target 'NiuBiBookCityTests' do
+    main_pods
+end
+

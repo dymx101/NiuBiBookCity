@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		028E7C779437F8A1038832D5 /* Pods_NiuBiBookCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DCC738C7ACF71E99904D5C3 /* Pods_NiuBiBookCity.framework */; };
+		03A7568D77F2E8BC252DD850 /* Pods_NiuBiBookCityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7783CE9C382A30C96DC70FEC /* Pods_NiuBiBookCityTests.framework */; };
 		A656A16B1E9F343D0062C936 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A16A1E9F343D0062C936 /* main.m */; };
 		A656A16E1E9F343D0062C936 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A16D1E9F343D0062C936 /* AppDelegate.m */; };
 		A656A1711E9F343D0062C936 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A1701E9F343D0062C936 /* ViewController.m */; };
@@ -67,7 +68,9 @@
 
 /* Begin PBXFileReference section */
 		0A05516C12913E62D6183D2A /* Pods-NiuBiBookCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuBiBookCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiuBiBookCity/Pods-NiuBiBookCity.debug.xcconfig"; sourceTree = "<group>"; };
+		1091753C04FB4CCA1E0603D3 /* Pods-NiuBiBookCityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuBiBookCityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiuBiBookCityTests/Pods-NiuBiBookCityTests.release.xcconfig"; sourceTree = "<group>"; };
 		4DCC738C7ACF71E99904D5C3 /* Pods_NiuBiBookCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiuBiBookCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7783CE9C382A30C96DC70FEC /* Pods_NiuBiBookCityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiuBiBookCityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A656A1661E9F343D0062C936 /* NiuBiBookCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiuBiBookCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A656A16A1E9F343D0062C936 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A656A16C1E9F343D0062C936 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 		A656A1F91E9F34610062C936 /* NSString+BookCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BookCity.h"; sourceTree = "<group>"; };
 		A656A1FA1E9F34610062C936 /* NSString+BookCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BookCity.m"; sourceTree = "<group>"; };
 		A7A73CAE7A26B08160F0F4C4 /* Pods-NiuBiBookCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuBiBookCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiuBiBookCity/Pods-NiuBiBookCity.release.xcconfig"; sourceTree = "<group>"; };
+		DC73EB3FE043DB0C883007A1 /* Pods-NiuBiBookCityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuBiBookCityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiuBiBookCityTests/Pods-NiuBiBookCityTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A7568D77F2E8BC252DD850 /* Pods_NiuBiBookCityTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +195,8 @@
 			children = (
 				0A05516C12913E62D6183D2A /* Pods-NiuBiBookCity.debug.xcconfig */,
 				A7A73CAE7A26B08160F0F4C4 /* Pods-NiuBiBookCity.release.xcconfig */,
+				DC73EB3FE043DB0C883007A1 /* Pods-NiuBiBookCityTests.debug.xcconfig */,
+				1091753C04FB4CCA1E0603D3 /* Pods-NiuBiBookCityTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				4DCC738C7ACF71E99904D5C3 /* Pods_NiuBiBookCity.framework */,
+				7783CE9C382A30C96DC70FEC /* Pods_NiuBiBookCityTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -580,9 +588,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A656A18B1E9F343D0062C936 /* Build configuration list for PBXNativeTarget "NiuBiBookCityTests" */;
 			buildPhases = (
+				C3E3A64303AB76B140FF8FA6 /* [CP] Check Pods Manifest.lock */,
 				A656A17B1E9F343D0062C936 /* Sources */,
 				A656A17C1E9F343D0062C936 /* Frameworks */,
 				A656A17D1E9F343D0062C936 /* Resources */,
+				B98FD23D214376656050D0BC /* [CP] Embed Pods Frameworks */,
+				7107544C0516F87096C5241D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -672,6 +683,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiuBiBookCity/Pods-NiuBiBookCity-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7107544C0516F87096C5241D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiuBiBookCityTests/Pods-NiuBiBookCityTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A8F4BDC9A1EEB0F49A9EE3F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,6 +714,36 @@
 			showEnvVarsInLog = 0;
 		};
 		8E8C3258DD8FBF0D770C24B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B98FD23D214376656050D0BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiuBiBookCityTests/Pods-NiuBiBookCityTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3E3A64303AB76B140FF8FA6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -908,6 +964,7 @@
 		};
 		A656A18C1E9F343D0062C936 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC73EB3FE043DB0C883007A1 /* Pods-NiuBiBookCityTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 8RV6PY6MK7;
@@ -921,6 +978,7 @@
 		};
 		A656A18D1E9F343D0062C936 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1091753C04FB4CCA1E0603D3 /* Pods-NiuBiBookCityTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 8RV6PY6MK7;

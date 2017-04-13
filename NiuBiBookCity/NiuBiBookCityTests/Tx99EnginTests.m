@@ -12,11 +12,11 @@
 #import "DefineHeader.h"
 #import "BCTBookModel.h"
 
-@interface NiuBiBookCityTests : XCTestCase
+@interface Tx99EnginTests : XCTestCase
 @property (nonatomic, strong) Txt99Engine *engine;
 @end
 
-@implementation NiuBiBookCityTests
+@implementation Tx99EnginTests
 
 - (void)setUp {
     self.engine = [Txt99Engine new];

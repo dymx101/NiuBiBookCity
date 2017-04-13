@@ -15,7 +15,7 @@
 		A656A1741E9F343D0062C936 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A656A1721E9F343D0062C936 /* Main.storyboard */; };
 		A656A1761E9F343D0062C936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A656A1751E9F343D0062C936 /* Assets.xcassets */; };
 		A656A1791E9F343D0062C936 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A656A1771E9F343D0062C936 /* LaunchScreen.storyboard */; };
-		A656A1841E9F343D0062C936 /* NiuBiBookCityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A1831E9F343D0062C936 /* NiuBiBookCityTests.m */; };
+		A656A1841E9F343D0062C936 /* Tx99EnginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A1831E9F343D0062C936 /* Tx99EnginTests.m */; };
 		A656A1FB1E9F34610062C936 /* BookAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A1911E9F34610062C936 /* BookAction.m */; };
 		A656A1FC1E9F34610062C936 /* NSMutableDictionary+XSDic.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A1971E9F34610062C936 /* NSMutableDictionary+XSDic.m */; };
 		A656A1FD1E9F34610062C936 /* NSObject+BMNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A656A19A1E9F34610062C936 /* NSObject+BMNotification.m */; };
@@ -82,7 +82,7 @@
 		A656A1781E9F343D0062C936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A656A17A1E9F343D0062C936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A656A17F1E9F343D0062C936 /* NiuBiBookCityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiuBiBookCityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A656A1831E9F343D0062C936 /* NiuBiBookCityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NiuBiBookCityTests.m; sourceTree = "<group>"; };
+		A656A1831E9F343D0062C936 /* Tx99EnginTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tx99EnginTests.m; sourceTree = "<group>"; };
 		A656A1851E9F343D0062C936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A656A1901E9F34610062C936 /* BookAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAction.h; sourceTree = "<group>"; };
 		A656A1911E9F34610062C936 /* BookAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookAction.m; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		A656A1821E9F343D0062C936 /* NiuBiBookCityTests */ = {
 			isa = PBXGroup;
 			children = (
-				A656A1831E9F343D0062C936 /* NiuBiBookCityTests.m */,
+				A656A1831E9F343D0062C936 /* Tx99EnginTests.m */,
 				A656A1851E9F343D0062C936 /* Info.plist */,
 			);
 			path = NiuBiBookCityTests;
@@ -812,7 +812,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A656A1841E9F343D0062C936 /* NiuBiBookCityTests.m in Sources */,
+				A656A1841E9F343D0062C936 /* Tx99EnginTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

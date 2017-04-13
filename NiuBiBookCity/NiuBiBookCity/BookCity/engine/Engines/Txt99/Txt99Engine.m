@@ -62,44 +62,23 @@
     }
     
     NSString *strSource = baseParam.paramString;
-//    strSource = @"盗墓";
-//    NSString *strKeyWord = [strSource URLEncodedStringGB_18030_2000];
-        NSString *strKeyWord = strSource;
+
+    NSString *strKeyWord = strSource;
 
     baseParam.paramInt--;
     NSString *strUrl = [NSString stringWithFormat:@"/cse/search?q=%@&p=%ld&s=10722981113312165527",strKeyWord,(long)baseParam.paramInt];
-    
-//    NSString *strUrl = @"/search.php";
-//    NSDictionary *dict = @{@"searchkey":strKeyWord,@"searchtype":@"articlename",@"sqtype":@"1"};
-    
 
-    strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    strUrl = [strUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     [[self sessionManagerZhanneiBaidu] GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
-        
-//        NSLog(@"Siku Search: %@", task.currentRequest.URL.absoluteString);
         
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
-        
-        //共搜索到74本
-        
         NSMutableArray *bookList = nil;
         
-//        NSString *strBookNumber =
+        NSArray *boollistBlnovel = [self getBookList:responseStr];
         
-//        if([BCTBookAnalyzer getStr:responseStr pattern:@"<h1 class=\"f20h\">"].length > 0)
-//        {
-//            BCTBookModel *oneBook = [self getBookModeSiKuShuForOne:responseStr];
-//            bookList = [[NSMutableArray alloc]initWithCapacity:2];
-//            [bookList addObject:oneBook];
-//        }
-//        else
-        {
-            NSArray *boollistBlnovel = [self getBookList:responseStr];
-            
-            if ([boollistBlnovel count]>0) {
-                bookList = [[NSMutableArray alloc]initWithArray:boollistBlnovel];
-            }
+        if ([boollistBlnovel count]>0) {
+            bookList = [[NSMutableArray alloc]initWithArray:boollistBlnovel];
         }
         
         baseParam.resultArray = bookList;
@@ -119,12 +98,6 @@
 
             [self.keywordPageCounts setValue:@(pageCount) forKey:strSource];
         }
-        // 获取总页数
-//        NSString *pageStr = [BCTBookAnalyzer getStrGroup1:responseStr pattern:@"<em id=\"pagestats\">([^<]*)</em>"];
-//        NSArray *pageInfo = [pageStr componentsSeparatedByString:@"/"];
-//        if (pageInfo.count == 2) {
-//            [self.keywordPageCounts setValue:@([pageInfo.lastObject integerValue]) forKey:strSource];
-//        }
         
         if (baseParam.withresultobjectblock) {
             baseParam.withresultobjectblock(0,@"",nil);

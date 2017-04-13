@@ -19,11 +19,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         baseURLs = @{
-                     @(kBCTBookEngine7788): @"http://www.7788xs.cc/"
-                     , @(kBCTBookEngineDuantian): @"http://www.duantian.com/"
+//                     @(kBCTBookEngine7788): @"http://www.7788xs.cc/"
+                     @(kBCTBookEngineDuantian): @"http://www.duantian.com/"
                      , @(kBCTBookEngineSiKuShuCom): @"http://www.sikushu.com/"
                      , @(kBCTBookEngineSiKuShuNet): @"http://www.sikushu.net/"
-                     , @(kBCTBookEngineH23Wx): @"http://www.23wx.com/"
+                     , @(kBCTBookEngineH23Wx): @"http://www.23wx.cc/"
                      , @(kBCTBookEngineBlnovel): @"http://www.blnovel.com/"
                      , @(kBCTBookEngineTxt99): @"http://www.txt99.cc/"
                      , @(kBCTBookEngineFS99lib): @"http://www.99lib.net/"

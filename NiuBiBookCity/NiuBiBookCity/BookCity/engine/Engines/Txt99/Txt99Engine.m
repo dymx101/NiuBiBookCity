@@ -238,7 +238,7 @@
     
     NSString *strBookNumberFront2 = [strBookNumber substringToIndex:2];
     
-    //http://www.23wx.com/files/article/image/59/59945/59945s.jpg
+    //http://www.23wx.cc/files/article/image/59/59945/59945s.jpg
     //http://img.txt99.cc/Cover/37/37995.jpg
 strResult = [NSString stringWithFormat:@"http://img.txt99.cc/Cover/%@/%@.jpg",strBookNumberFront2,strBookNumber];
     

@@ -20,15 +20,20 @@
 -(void)getSearchBookResult:(BMBaseParam*)baseParam {
     NSString *strKeyWord = baseParam.paramString;
     
-    if(baseParam.paramInt > 0) {
-        baseParam.paramInt--;
+    if(baseParam.paramInt < 1) {
+        baseParam.paramInt = 1;
+    } else {
+        baseParam.paramInt++;
     }
+    
     NSString *stringPage = [NSString stringWithFormat:@"%ld",(long)baseParam.paramInt];
     
-    NSDictionary *dict = @{@"q":strKeyWord,@"p":stringPage,@"s":@"15772447660171623812",@"nsid":@"",@"entry":@"1"};
-    NSString *strUrl = @"/cse/search";
+    // FIXME: 这里的keyword在网站被encode了，和我们代码里面encode的不一样
+    NSDictionary *dict = @{@"searchkey":strKeyWord,@"page":stringPage,@"ct":@"2097152",@"si":@"52mb.net",@"sts":@"52mb.net"};
+    NSString *strUrl = @"/modules/article/search.php";
     
-    [self.sessionManager GET:strUrl parameters:dict success:^(NSURLSessionDataTask * __unused task, id responseObject) {
+    // MARK:23wx改为post请求了
+    [self.sessionManager POST:strUrl parameters:dict success:^(NSURLSessionDataTask * __unused task, id responseObject) {
         
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         

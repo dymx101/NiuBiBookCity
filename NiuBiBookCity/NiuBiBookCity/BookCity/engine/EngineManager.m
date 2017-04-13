@@ -57,9 +57,9 @@ DEF_SINGLETON(EngineManager)
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dicEngines = @{
-                          @(kBCTBookEngine7788).stringValue: [XiaoShuo7788Engine new]
+//                          @(kBCTBookEngine7788).stringValue: [XiaoShuo7788Engine new]
 //                              , @(kBCTBookEngineDuantian).stringValue: [DuanTianEngine new]
-                          , @(kBCTBookEngineSiKuShuCom).stringValue: [SiKushuEngine new]
+                          @(kBCTBookEngineSiKuShuCom).stringValue: [SiKushuEngine new]
                           , @(kBCTBookEngineSiKuShuNet).stringValue: [SiKushuEngine new]
                           , @(kBCTBookEngineH23Wx).stringValue: [H23wxEngine new]
                           , @(kBCTBookEngineBlnovel).stringValue: [BlnovelEngine new]
@@ -76,11 +76,11 @@ DEF_SINGLETON(EngineManager)
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dicEnginePatterns = @{
-                              @(kBCTBookEngine7788).stringValue: @"^http://www.7788xs.cc/"
+//                              @(kBCTBookEngine7788).stringValue: @"^http://www.7788xs.cc/"
 //                              , @(kBCTBookEngineDuantian).stringValue: @"^http://www.duantian.com/"
-                              , @(kBCTBookEngineSiKuShuCom).stringValue: @"^http://www.sikushu.com/"
+                              @(kBCTBookEngineSiKuShuCom).stringValue: @"^http://www.sikushu.com/"
                               , @(kBCTBookEngineSiKuShuNet).stringValue: @"^http://www.sikushu.net/"
-                              , @(kBCTBookEngineH23Wx).stringValue: @"^http://www.23wx.com/"
+                              , @(kBCTBookEngineH23Wx).stringValue: @"^http://www.23wx.cc/"
                               , @(kBCTBookEngineBlnovel).stringValue: @"^http://www.blnovel.com/"
                               , @(kBCTBookEngineTxt99).stringValue: @"^http://www.txt99.cc/"
                               };

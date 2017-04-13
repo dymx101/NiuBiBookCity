@@ -11,7 +11,7 @@
 			<array>
 				<string>http://www.txt99.cc/txt/list3-%d.html</string>
 				<string>http://www.7788xs.cc/sort1/%d.html</string>
-				<string>http://www.23wx.com/class/1_%d.html</string>
+				<string>http://www.23wx.cc/class/1_%d.html</string>
 			</array>
 			<key>order</key>
 			<integer>0</integer>
@@ -64,7 +64,7 @@
 			<array>
 				<string>http://www.txt99.cc/txt/list2-%d.html</string>
 				<string>http://www.7788xs.cc/sort3/%d.html</string>
-				<string>http://www.23wx.com/class/3_%d.html</string>
+				<string>http://www.23wx.cc/class/3_%d.html</string>
 			</array>
 			<key>order</key>
 			<integer>0</integer>
@@ -81,7 +81,7 @@
 			<key>urlAry</key>
 			<array>
 				<string>http://www.sikushu.com/catalog/2-%d.html</string>
-				<string>http://www.23wx.com/class/2_%d.html</string>
+				<string>http://www.23wx.cc/class/2_%d.html</string>
 				<string>http://www.txt99.cc/txt/list1-%d.html</string>
 				<string>http://www.7788xs.cc/sort2/%d.html</string>
 			</array>
@@ -100,7 +100,7 @@
 			<key>urlAry</key>
 			<array>
 				<string>http://www.7788xs.cc/sort2/%d.html</string>
-				<string>http://www.23wx.com/class/2_%d.html</string>
+				<string>http://www.23wx.cc/class/2_%d.html</string>
 				<string>http://www.txt99.cc/txt/list1-%d.html</string>
 			</array>
 			<key>order</key>
@@ -171,7 +171,7 @@
 			<array>
 				<string>http://www.sikushu.com/catalog/7-%d.html</string>
 				<string>http://www.txt99.cc/txt/list6-%d.html</string>
-				<string>http://www.23wx.com/class/7_%d.html</string>
+				<string>http://www.23wx.cc/class/7_%d.html</string>
 				<string>http://www.7788xs.cc/sort7/%d.html</string>
 			</array>
 			<key>order</key>
@@ -189,7 +189,7 @@
 			<key>urlAry</key>
 			<array>
 				<string>http://www.txt99.cc/txt/list7-%d.html</string>
-				<string>http://www.23wx.com/class/6_%d.html</string>
+				<string>http://www.23wx.cc/class/6_%d.html</string>
 				<string>http://www.sikushu.com/catalog/5-%d.html</string>
 			</array>
 			<key>order</key>
@@ -273,7 +273,7 @@
 			<array>
 				<string>http://www.sikushu.com/catalog/6-%d.html</string>
 				<string>http://www.txt99.cc/txt/list10-%d.html</string>
-				<string>http://www.23wx.com/class/8_%d.html</string>
+				<string>http://www.23wx.cc/class/8_%d.html</string>
 				<string>http://www.7788xs.cc/sort8/%d.html</string>
 			</array>
 			<key>order</key>
@@ -290,7 +290,7 @@
 			<string>[140,165,185,1]</string>
 			<key>urlAry</key>
 			<array>
-				<string>http://www.23wx.com/class/9_%d.html</string>
+				<string>http://www.23wx.cc/class/9_%d.html</string>
 				<string>http://www.7788xs.cc/sort9/%d.html</string>
 				<string>http://www.txt99.cc/txt/list8-%d.html</string>
 			</array>
@@ -341,7 +341,7 @@
 			<string>[108,108,128,1]</string>
 			<key>urlAry</key>
 			<array>
-				<string>http://www.23wx.com/class/5_%d.html</string>
+				<string>http://www.23wx.cc/class/5_%d.html</string>
 				<string>http://www.txt99.cc/txt/list10-%d.html</string>
 			</array>
 			<key>order</key>
@@ -390,7 +390,7 @@
 			<string>[128,128,128,1]</string>
 			<key>urlAry</key>
 			<array>
-				<string>http://www.23wx.com/class/10_%d.html</string>
+				<string>http://www.23wx.cc/class/10_%d.html</string>
 				<string>http://www.sikushu.com/catalog/10-%d.html</string>
 				<string>http://www.7788xs.cc/sort10/%d.html</string>
 			</array>
@@ -401,7 +401,7 @@
 			<key>categoryname</key>
 			<string>其他</string>
 			<key>url</key>
-			<string>http://www.23wx.com/class/10_%d.html</string>
+			<string>http://www.23wx.cc/class/10_%d.html</string>
 		</dict>
 	</array>
 </dict>

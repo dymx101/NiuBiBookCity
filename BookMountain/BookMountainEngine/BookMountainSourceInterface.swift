@@ -8,12 +8,14 @@
 
 import Foundation
 
-protocol BookMountainSourceInterface {
+class BookMountainSource {
     
-    var baseURL: String {get set}
-    var requestEncoding: String.Encoding {get}
-    var shouldPretendAsComputer: Bool {get}
-    var parsingPatterns: BookParsingPatterns {get}
+    var baseURL: String?
+    var requestEncoding: String.Encoding?
+    var shouldPretendAsComputer: Bool?
+    var parsingPatterns: BookParsingPatterns?
     
-    func searchURL(withKeyword keyword: String, page: Int) -> String
+    func searchURL(withKeyword keyword: String, page: Int) -> String {
+        return ""
+    }
 }

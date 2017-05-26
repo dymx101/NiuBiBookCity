@@ -13,6 +13,7 @@ protocol BookMountainSourceInterface {
     var baseURL: String {get set}
     var requestEncoding: String.Encoding {get}
     var shouldPretendAsComputer: Bool {get}
+    var parsingPatterns: BookParsingPatterns {get}
     
     func searchURL(withKeyword keyword: String, page: Int) -> String
 }

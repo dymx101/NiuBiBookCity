@@ -12,21 +12,21 @@ import Foundation
 class BookParsingPatterns {
     
     /// 用于解析出图书列表
-    var listPattern: String?
+    var list: String?
     
     /// 以下pattern用于解析出bookModel的信息
-    var titlePattern: String?
-    var bookLinkPattern: String?
-    var authorPattern: String?
-    var imageSrcPattern: String?
-    var memoPattern: String?
+    var title: String?
+    var bookLink: String?
+    var author: String?
+    var imageSrc: String?
+    var memo: String?
     
     /// 章节容器pattern, 某些网站会在章节列表外面包一层
-    var chapterContainterPattern: String?
+    var chapterContainter: String?
     /// 用于从章节列表抓出一个章节
-    var chapterItemPattern: String?
+    var chapterItem: String?
     /// 用于从章节string中解析出title和url
-    var chapterDetailPattern: String?
+    var chapterDetail: String?
     /// 用于解析出章节内容
-    var chapterContentPattern: String?
+    var chapterContent: String?
 }

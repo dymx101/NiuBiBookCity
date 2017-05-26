@@ -15,6 +15,7 @@
 		8C40AE541ED84D10000C8D2B /* BookMountainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE531ED84D10000C8D2B /* BookMountainTests.swift */; };
 		8C40AE601ED84E55000C8D2B /* BookMountainSourceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE5F1ED84E55000C8D2B /* BookMountainSourceInterface.swift */; };
 		8C40AE621ED85469000C8D2B /* BookParsingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE611ED85469000C8D2B /* BookParsingPatterns.swift */; };
+		8C40AE641ED86092000C8D2B /* BookMountainConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE631ED86092000C8D2B /* BookMountainConfiguration.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		8C40AE551ED84D10000C8D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C40AE5F1ED84E55000C8D2B /* BookMountainSourceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMountainSourceInterface.swift; sourceTree = "<group>"; };
 		8C40AE611ED85469000C8D2B /* BookParsingPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParsingPatterns.swift; sourceTree = "<group>"; };
+		8C40AE631ED86092000C8D2B /* BookMountainConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BookMountainConfiguration.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				8C40AE5F1ED84E55000C8D2B /* BookMountainSourceInterface.swift */,
 				8C40AE611ED85469000C8D2B /* BookParsingPatterns.swift */,
+				8C40AE631ED86092000C8D2B /* BookMountainConfiguration.plist */,
 			);
 			path = BookMountainEngine;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				8C40AE491ED84D10000C8D2B /* LaunchScreen.storyboard in Resources */,
 				8C40AE461ED84D10000C8D2B /* Assets.xcassets in Resources */,
 				8C40AE441ED84D10000C8D2B /* Main.storyboard in Resources */,
+				8C40AE641ED86092000C8D2B /* BookMountainConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

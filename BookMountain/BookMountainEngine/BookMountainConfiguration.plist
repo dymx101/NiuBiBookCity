@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>version</key>
+	<integer>1</integer>
+	<key>sources</key>
+	<array>
+		<dict>
+			<key>baseURL</key>
+			<string></string>
+			<key>requestEncoding</key>
+			<string></string>
+			<key>shouldPretendAsComputer</key>
+			<string></string>
+			<key>parsingPatterns</key>
+			<dict>
+				<key>list</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>bookLink</key>
+				<string></string>
+				<key>author</key>
+				<string></string>
+				<key>imageSrc</key>
+				<string></string>
+				<key>memo</key>
+				<string></string>
+				<key>chapterContainter</key>
+				<string></string>
+				<key>chapterItem</key>
+				<string></string>
+				<key>chapterDetail</key>
+				<string></string>
+				<key>chapterContent</key>
+				<string></string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

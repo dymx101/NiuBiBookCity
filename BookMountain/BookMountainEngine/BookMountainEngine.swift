@@ -21,6 +21,6 @@ class BookMountainEngine: BookMountainEngineInterface {
     }
     
     private func loadConfig() {
-    
+        
     }
 }

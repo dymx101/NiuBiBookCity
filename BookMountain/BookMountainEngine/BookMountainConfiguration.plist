@@ -9,6 +9,8 @@
 		<dict>
 			<key>baseURL</key>
 			<string></string>
+			<key>searhURL</key>
+			<string></string>
 			<key>requestEncoding</key>
 			<string></string>
 			<key>shouldPretendAsComputer</key>

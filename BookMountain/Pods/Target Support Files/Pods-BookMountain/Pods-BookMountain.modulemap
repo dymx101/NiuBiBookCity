@@ -1,0 +1,6 @@
+framework module Pods_BookMountain {
+  umbrella header "Pods-BookMountain-umbrella.h"
+
+  export *
+  module * { export * }
+}

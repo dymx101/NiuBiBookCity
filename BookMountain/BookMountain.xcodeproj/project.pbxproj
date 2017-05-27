@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5C7ED860C08F80C647C5EC /* Pods_BookMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */; };
 		8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */; };
 		8C40AE411ED84D10000C8D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE401ED84D10000C8D2B /* ViewController.swift */; };
 		8C40AE441ED84D10000C8D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE421ED84D10000C8D2B /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain.debug.xcconfig"; sourceTree = "<group>"; };
 		8C40AE3B1ED84D10000C8D2B /* BookMountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C40AE401ED84D10000C8D2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		8C40AE611ED85469000C8D2B /* BookParsingPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParsingPatterns.swift; sourceTree = "<group>"; };
 		8C40AE631ED86092000C8D2B /* BookMountainConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BookMountainConfiguration.plist; sourceTree = "<group>"; };
 		8C40AE651ED865A1000C8D2B /* BookMountainEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMountainEngine.swift; sourceTree = "<group>"; };
+		97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMountain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82ED84AA95C66FC79EFC356 /* Pods-BookMountain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMountain.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5C7ED860C08F80C647C5EC /* Pods_BookMountain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74716E378DBED57EAAD138E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */,
+				C82ED84AA95C66FC79EFC356 /* Pods-BookMountain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C40AE321ED84D10000C8D2B = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +85,8 @@
 				8C40AE3D1ED84D10000C8D2B /* BookMountain */,
 				8C40AE521ED84D10000C8D2B /* BookMountainTests */,
 				8C40AE3C1ED84D10000C8D2B /* Products */,
+				74716E378DBED57EAAD138E8 /* Pods */,
+				A1CC5EC60A81EF07285144D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +132,14 @@
 			path = BookMountainEngine;
 			sourceTree = "<group>";
 		};
+		A1CC5EC60A81EF07285144D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C40AE581ED84D10000C8D2B /* Build configuration list for PBXNativeTarget "BookMountain" */;
 			buildPhases = (
+				FA1000AC64107D6A7164D201 /* [CP] Check Pods Manifest.lock */,
 				8C40AE371ED84D10000C8D2B /* Sources */,
 				8C40AE381ED84D10000C8D2B /* Frameworks */,
 				8C40AE391ED84D10000C8D2B /* Resources */,
+				70B44AA4613C28BA3E65AFDA /* [CP] Embed Pods Frameworks */,
+				F2D15E810A6EF436DD676E2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,6 +242,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70B44AA4613C28BA3E65AFDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2D15E810A6EF436DD676E2D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA1000AC64107D6A7164D201 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8C40AE371ED84D10000C8D2B /* Sources */ = {
@@ -364,6 +439,7 @@
 		};
 		8C40AE591ED84D10000C8D2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -380,6 +456,7 @@
 		};
 		8C40AE5A1ED84D10000C8D2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C82ED84AA95C66FC79EFC356 /* Pods-BookMountain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

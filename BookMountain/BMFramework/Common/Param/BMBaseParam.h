@@ -1,0 +1,98 @@
+
+/*!
+ @header BMBaseParam
+ @abstract BMBaseParam 的头文件
+ @author FS (作者信息)
+ @version 1.00 2014/10/12 Creation (此文档的版本信息)
+ */
+#import <Foundation/Foundation.h>
+
+/*!
+ *  定义参数类的block
+ *
+ *  @param int       错误代码 如果错误代码为 0 就是正确的
+ *  @param NSString 提示消息
+ */
+typedef void (^BaseBlock)(int,NSString*);
+
+
+/*!
+ *  定义参数类的block
+ *
+ *  @param int       错误代码 如果错误代码为 0 就是正确的
+ *  @param NSString 提示消息
+ *  @param id
+ */
+typedef void (^WithResultObjectBlock)(int,NSString*,id);
+
+/*!
+ @class
+ @abstract 调用Action的传入参数
+ */
+@interface BMBaseParam : NSObject
+
+/*!
+ *  array 参数
+ */
+@property (nonatomic,strong) NSMutableArray* paramArray;
+
+/*!
+ *  dictionary 参数
+ */
+@property (nonatomic,strong) NSMutableDictionary* paramDic;
+
+/*!
+ *  string 参数
+ */
+@property (nonatomic,strong) NSString* paramString;
+
+/*!
+ *  string 参数2
+ */
+@property (nonatomic,strong) NSString* paramString2;
+
+/*!
+ *  object 参数
+ */
+@property (nonatomic,strong) NSObject* paramObject;
+
+/*!
+ *  int 参数
+ */
+@property (readwrite) NSInteger paramInt;
+
+/*!
+ *  Bool 参数
+ */
+@property (readwrite) BOOL paramBool;
+
+
+@property (nonatomic,strong) NSMutableArray* resultArray;
+
+@property (nonatomic,strong) id resultObject;
+
+@property (nonatomic,strong) NSString* resultString;
+
+
+/*!
+ *  方法调用完成
+ */
+@property (readwrite) BOOL isFinished;
+
+/*!
+ *  block 参数
+ */
+@property (nonatomic,strong) BaseBlock baseblock;
+/*!
+ *  block 参数
+ */
+@property (nonatomic,strong) WithResultObjectBlock withresultobjectblock;
+
+
+- (void)increasePendingCallbacks;
+
+- (void)reducePendingCallbacks;
+
+- (BOOL)hasMoreCallBacks;
+
+@end

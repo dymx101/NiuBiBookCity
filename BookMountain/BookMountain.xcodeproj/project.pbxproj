@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */; };
+		83B744DA1EDAB2300058E115 /* BCTBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744D91EDAB2300058E115 /* BCTBookModel.swift */; };
+		83B744DC1EDAB3650058E115 /* BCTBookChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744DB1EDAB3650058E115 /* BCTBookChapterModel.swift */; };
+		83B745351EDABCDE0058E115 /* BookAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B745341EDABCDE0058E115 /* BookAction.swift */; };
+		83B7456F1EDABCED0058E115 /* NSMutableDictionary+XSDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7453B1EDABCED0058E115 /* NSMutableDictionary+XSDic.m */; };
+		83B745701EDABCED0058E115 /* NSObject+BMNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7453E1EDABCED0058E115 /* NSObject+BMNotification.m */; };
+		83B745711EDABCED0058E115 /* NSObject+BMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745401EDABCED0058E115 /* NSObject+BMProperty.m */; };
+		83B745721EDABCED0058E115 /* NSString+OAURLEncodingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745421EDABCED0058E115 /* NSString+OAURLEncodingAdditions.m */; };
+		83B745731EDABCED0058E115 /* BMBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7454A1EDABCED0058E115 /* BMBaseParam.m */; };
+		83B745741EDABCED0058E115 /* BMActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7454D1EDABCED0058E115 /* BMActionManager.m */; };
+		83B745751EDABCED0058E115 /* BMContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7454F1EDABCED0058E115 /* BMContext.m */; };
+		83B745761EDABCED0058E115 /* BMAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745521EDABCED0058E115 /* BMAppManager.m */; };
+		83B745771EDABCED0058E115 /* BMBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745541EDABCED0058E115 /* BMBaseAction.m */; };
+		83B745781EDABCED0058E115 /* BMControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745561EDABCED0058E115 /* BMControl.m */; };
+		83B745791EDABCED0058E115 /* ServiceInspector_Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7455A1EDABCED0058E115 /* ServiceInspector_Border.m */; };
+		83B7457A1EDABCED0058E115 /* ServiceInspector_Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7455C1EDABCED0058E115 /* ServiceInspector_Indicator.m */; };
+		83B7457B1EDABCED0058E115 /* ServiceInspector_WindowHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7455E1EDABCED0058E115 /* ServiceInspector_WindowHook.m */; };
+		83B7457C1EDABCED0058E115 /* BMUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745641EDABCED0058E115 /* BMUIApplication.m */; };
+		83B7457D1EDABCED0058E115 /* BMBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745661EDABCED0058E115 /* BMBaseTabBarController.m */; };
+		83B7457E1EDABCED0058E115 /* BMBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B745681EDABCED0058E115 /* BMBaseTableViewCell.m */; };
+		83B7457F1EDABCED0058E115 /* BMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456A1EDABCED0058E115 /* BMBaseTableViewController.m */; };
+		83B745801EDABCED0058E115 /* BMBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456C1EDABCED0058E115 /* BMBaseView.m */; };
+		83B745811EDABCED0058E115 /* BMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456E1EDABCED0058E115 /* BMBaseViewController.m */; };
 		8A5C7ED860C08F80C647C5EC /* Pods_BookMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */; };
 		8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */; };
 		8C40AE411ED84D10000C8D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE401ED84D10000C8D2B /* ViewController.swift */; };
@@ -32,6 +55,54 @@
 
 /* Begin PBXFileReference section */
 		65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain.debug.xcconfig"; sourceTree = "<group>"; };
+		83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMountainEngineManager.swift; sourceTree = "<group>"; };
+		83B744D91EDAB2300058E115 /* BCTBookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTBookModel.swift; sourceTree = "<group>"; };
+		83B744DB1EDAB3650058E115 /* BCTBookChapterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTBookChapterModel.swift; sourceTree = "<group>"; };
+		83B745301EDABCB40058E115 /* BookMountain-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookMountain-Bridging-Header.h"; sourceTree = "<group>"; };
+		83B745341EDABCDE0058E115 /* BookAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookAction.swift; sourceTree = "<group>"; };
+		83B745371EDABCED0058E115 /* BMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFramework.h; sourceTree = "<group>"; };
+		83B7453A1EDABCED0058E115 /* NSMutableDictionary+XSDic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+XSDic.h"; sourceTree = "<group>"; };
+		83B7453B1EDABCED0058E115 /* NSMutableDictionary+XSDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+XSDic.m"; sourceTree = "<group>"; };
+		83B7453D1EDABCED0058E115 /* NSObject+BMNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BMNotification.h"; sourceTree = "<group>"; };
+		83B7453E1EDABCED0058E115 /* NSObject+BMNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BMNotification.m"; sourceTree = "<group>"; };
+		83B7453F1EDABCED0058E115 /* NSObject+BMProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BMProperty.h"; sourceTree = "<group>"; };
+		83B745401EDABCED0058E115 /* NSObject+BMProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BMProperty.m"; sourceTree = "<group>"; };
+		83B745411EDABCED0058E115 /* NSString+OAURLEncodingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OAURLEncodingAdditions.h"; sourceTree = "<group>"; };
+		83B745421EDABCED0058E115 /* NSString+OAURLEncodingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OAURLEncodingAdditions.m"; sourceTree = "<group>"; };
+		83B745441EDABCED0058E115 /* BMCmdDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCmdDefine.h; sourceTree = "<group>"; };
+		83B745451EDABCED0058E115 /* BMDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDefine.h; sourceTree = "<group>"; };
+		83B745471EDABCED0058E115 /* NSObjectHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectHead.h; sourceTree = "<group>"; };
+		83B745491EDABCED0058E115 /* BMBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseParam.h; sourceTree = "<group>"; };
+		83B7454A1EDABCED0058E115 /* BMBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseParam.m; sourceTree = "<group>"; };
+		83B7454C1EDABCED0058E115 /* BMActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMActionManager.h; sourceTree = "<group>"; };
+		83B7454D1EDABCED0058E115 /* BMActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMActionManager.m; sourceTree = "<group>"; };
+		83B7454E1EDABCED0058E115 /* BMContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContext.h; sourceTree = "<group>"; };
+		83B7454F1EDABCED0058E115 /* BMContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContext.m; sourceTree = "<group>"; };
+		83B745511EDABCED0058E115 /* BMAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAppManager.h; sourceTree = "<group>"; };
+		83B745521EDABCED0058E115 /* BMAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAppManager.m; sourceTree = "<group>"; };
+		83B745531EDABCED0058E115 /* BMBaseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseAction.h; sourceTree = "<group>"; };
+		83B745541EDABCED0058E115 /* BMBaseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseAction.m; sourceTree = "<group>"; };
+		83B745551EDABCED0058E115 /* BMControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMControl.h; sourceTree = "<group>"; };
+		83B745561EDABCED0058E115 /* BMControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMControl.m; sourceTree = "<group>"; };
+		83B745591EDABCED0058E115 /* ServiceInspector_Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceInspector_Border.h; sourceTree = "<group>"; };
+		83B7455A1EDABCED0058E115 /* ServiceInspector_Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceInspector_Border.m; sourceTree = "<group>"; };
+		83B7455B1EDABCED0058E115 /* ServiceInspector_Indicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceInspector_Indicator.h; sourceTree = "<group>"; };
+		83B7455C1EDABCED0058E115 /* ServiceInspector_Indicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceInspector_Indicator.m; sourceTree = "<group>"; };
+		83B7455D1EDABCED0058E115 /* ServiceInspector_WindowHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceInspector_WindowHook.h; sourceTree = "<group>"; };
+		83B7455E1EDABCED0058E115 /* ServiceInspector_WindowHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceInspector_WindowHook.m; sourceTree = "<group>"; };
+		83B745601EDABCED0058E115 /* BMUtilDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUtilDefine.h; sourceTree = "<group>"; };
+		83B745631EDABCED0058E115 /* BMUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUIApplication.h; sourceTree = "<group>"; };
+		83B745641EDABCED0058E115 /* BMUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUIApplication.m; sourceTree = "<group>"; };
+		83B745651EDABCED0058E115 /* BMBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseTabBarController.h; sourceTree = "<group>"; };
+		83B745661EDABCED0058E115 /* BMBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseTabBarController.m; sourceTree = "<group>"; };
+		83B745671EDABCED0058E115 /* BMBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseTableViewCell.h; sourceTree = "<group>"; };
+		83B745681EDABCED0058E115 /* BMBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseTableViewCell.m; sourceTree = "<group>"; };
+		83B745691EDABCED0058E115 /* BMBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseTableViewController.h; sourceTree = "<group>"; };
+		83B7456A1EDABCED0058E115 /* BMBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseTableViewController.m; sourceTree = "<group>"; };
+		83B7456B1EDABCED0058E115 /* BMBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseView.h; sourceTree = "<group>"; };
+		83B7456C1EDABCED0058E115 /* BMBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseView.m; sourceTree = "<group>"; };
+		83B7456D1EDABCED0058E115 /* BMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseViewController.h; sourceTree = "<group>"; };
+		83B7456E1EDABCED0058E115 /* BMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseViewController.m; sourceTree = "<group>"; };
 		8C40AE3B1ED84D10000C8D2B /* BookMountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C40AE401ED84D10000C8D2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,9 +149,184 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		83B744D81EDAB2160058E115 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83B744D91EDAB2300058E115 /* BCTBookModel.swift */,
+				83B744DB1EDAB3650058E115 /* BCTBookChapterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		83B7452C1EDABC440058E115 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				83B745301EDABCB40058E115 /* BookMountain-Bridging-Header.h */,
+				83B745341EDABCDE0058E115 /* BookAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		83B745361EDABCED0058E115 /* BMFramework */ = {
+			isa = PBXGroup;
+			children = (
+				83B745371EDABCED0058E115 /* BMFramework.h */,
+				83B745381EDABCED0058E115 /* Common */,
+				83B7454B1EDABCED0058E115 /* Context */,
+				83B745501EDABCED0058E115 /* Controller */,
+				83B745571EDABCED0058E115 /* Services */,
+				83B7455F1EDABCED0058E115 /* UtilDefine */,
+				83B745611EDABCED0058E115 /* View */,
+			);
+			path = BMFramework;
+			sourceTree = "<group>";
+		};
+		83B745381EDABCED0058E115 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				83B745391EDABCED0058E115 /* Categories */,
+				83B745431EDABCED0058E115 /* Define */,
+				83B745461EDABCED0058E115 /* Head */,
+				83B745481EDABCED0058E115 /* Param */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		83B745391EDABCED0058E115 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				83B7453A1EDABCED0058E115 /* NSMutableDictionary+XSDic.h */,
+				83B7453B1EDABCED0058E115 /* NSMutableDictionary+XSDic.m */,
+				83B7453C1EDABCED0058E115 /* NSObject */,
+				83B745411EDABCED0058E115 /* NSString+OAURLEncodingAdditions.h */,
+				83B745421EDABCED0058E115 /* NSString+OAURLEncodingAdditions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		83B7453C1EDABCED0058E115 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				83B7453D1EDABCED0058E115 /* NSObject+BMNotification.h */,
+				83B7453E1EDABCED0058E115 /* NSObject+BMNotification.m */,
+				83B7453F1EDABCED0058E115 /* NSObject+BMProperty.h */,
+				83B745401EDABCED0058E115 /* NSObject+BMProperty.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		83B745431EDABCED0058E115 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				83B745441EDABCED0058E115 /* BMCmdDefine.h */,
+				83B745451EDABCED0058E115 /* BMDefine.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		83B745461EDABCED0058E115 /* Head */ = {
+			isa = PBXGroup;
+			children = (
+				83B745471EDABCED0058E115 /* NSObjectHead.h */,
+			);
+			path = Head;
+			sourceTree = "<group>";
+		};
+		83B745481EDABCED0058E115 /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				83B745491EDABCED0058E115 /* BMBaseParam.h */,
+				83B7454A1EDABCED0058E115 /* BMBaseParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
+		83B7454B1EDABCED0058E115 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				83B7454C1EDABCED0058E115 /* BMActionManager.h */,
+				83B7454D1EDABCED0058E115 /* BMActionManager.m */,
+				83B7454E1EDABCED0058E115 /* BMContext.h */,
+				83B7454F1EDABCED0058E115 /* BMContext.m */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		83B745501EDABCED0058E115 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83B745511EDABCED0058E115 /* BMAppManager.h */,
+				83B745521EDABCED0058E115 /* BMAppManager.m */,
+				83B745531EDABCED0058E115 /* BMBaseAction.h */,
+				83B745541EDABCED0058E115 /* BMBaseAction.m */,
+				83B745551EDABCED0058E115 /* BMControl.h */,
+				83B745561EDABCED0058E115 /* BMControl.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		83B745571EDABCED0058E115 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				83B745581EDABCED0058E115 /* ServicesInspector */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		83B745581EDABCED0058E115 /* ServicesInspector */ = {
+			isa = PBXGroup;
+			children = (
+				83B745591EDABCED0058E115 /* ServiceInspector_Border.h */,
+				83B7455A1EDABCED0058E115 /* ServiceInspector_Border.m */,
+				83B7455B1EDABCED0058E115 /* ServiceInspector_Indicator.h */,
+				83B7455C1EDABCED0058E115 /* ServiceInspector_Indicator.m */,
+				83B7455D1EDABCED0058E115 /* ServiceInspector_WindowHook.h */,
+				83B7455E1EDABCED0058E115 /* ServiceInspector_WindowHook.m */,
+			);
+			path = ServicesInspector;
+			sourceTree = "<group>";
+		};
+		83B7455F1EDABCED0058E115 /* UtilDefine */ = {
+			isa = PBXGroup;
+			children = (
+				83B745601EDABCED0058E115 /* BMUtilDefine.h */,
+			);
+			path = UtilDefine;
+			sourceTree = "<group>";
+		};
+		83B745611EDABCED0058E115 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83B745621EDABCED0058E115 /* app */,
+				83B745651EDABCED0058E115 /* BMBaseTabBarController.h */,
+				83B745661EDABCED0058E115 /* BMBaseTabBarController.m */,
+				83B745671EDABCED0058E115 /* BMBaseTableViewCell.h */,
+				83B745681EDABCED0058E115 /* BMBaseTableViewCell.m */,
+				83B745691EDABCED0058E115 /* BMBaseTableViewController.h */,
+				83B7456A1EDABCED0058E115 /* BMBaseTableViewController.m */,
+				83B7456B1EDABCED0058E115 /* BMBaseView.h */,
+				83B7456C1EDABCED0058E115 /* BMBaseView.m */,
+				83B7456D1EDABCED0058E115 /* BMBaseViewController.h */,
+				83B7456E1EDABCED0058E115 /* BMBaseViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		83B745621EDABCED0058E115 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				83B745631EDABCED0058E115 /* BMUIApplication.h */,
+				83B745641EDABCED0058E115 /* BMUIApplication.m */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		8C40AE321ED84D10000C8D2B = {
 			isa = PBXGroup;
 			children = (
+				83B745361EDABCED0058E115 /* BMFramework */,
+				83B7452C1EDABC440058E115 /* Action */,
+				83B744D81EDAB2160058E115 /* Model */,
 				8C40AE5E1ED84D85000C8D2B /* BookMountainEngine */,
 				8C40AE3D1ED84D10000C8D2B /* BookMountain */,
 				8C40AE521ED84D10000C8D2B /* BookMountainTests */,
@@ -128,6 +374,7 @@
 				8C40AE611ED85469000C8D2B /* BookParsingPatterns.swift */,
 				8C40AE631ED86092000C8D2B /* BookMountainConfiguration.plist */,
 				8C40AE651ED865A1000C8D2B /* BookMountainEngine.swift */,
+				83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */,
 			);
 			path = BookMountainEngine;
 			sourceTree = "<group>";
@@ -193,7 +440,7 @@
 				TargetAttributes = {
 					8C40AE3A1ED84D10000C8D2B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 8MWQU2YKZK;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					8C40AE4E1ED84D10000C8D2B = {
@@ -296,11 +543,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83B745741EDABCED0058E115 /* BMActionManager.m in Sources */,
+				83B744DC1EDAB3650058E115 /* BCTBookChapterModel.swift in Sources */,
 				8C40AE621ED85469000C8D2B /* BookParsingPatterns.swift in Sources */,
+				83B745781EDABCED0058E115 /* BMControl.m in Sources */,
 				8C40AE411ED84D10000C8D2B /* ViewController.swift in Sources */,
+				83B7457D1EDABCED0058E115 /* BMBaseTabBarController.m in Sources */,
+				83B7457C1EDABCED0058E115 /* BMUIApplication.m in Sources */,
+				83B7457E1EDABCED0058E115 /* BMBaseTableViewCell.m in Sources */,
 				8C40AE601ED84E55000C8D2B /* BookMountainSourceInterface.swift in Sources */,
+				83B7457A1EDABCED0058E115 /* ServiceInspector_Indicator.m in Sources */,
+				83B745771EDABCED0058E115 /* BMBaseAction.m in Sources */,
+				83B744DA1EDAB2300058E115 /* BCTBookModel.swift in Sources */,
+				83B7456F1EDABCED0058E115 /* NSMutableDictionary+XSDic.m in Sources */,
+				83B745791EDABCED0058E115 /* ServiceInspector_Border.m in Sources */,
+				83B745351EDABCDE0058E115 /* BookAction.swift in Sources */,
+				83B745761EDABCED0058E115 /* BMAppManager.m in Sources */,
+				83B745711EDABCED0058E115 /* NSObject+BMProperty.m in Sources */,
+				83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */,
+				83B745751EDABCED0058E115 /* BMContext.m in Sources */,
+				83B745721EDABCED0058E115 /* NSString+OAURLEncodingAdditions.m in Sources */,
+				83B745801EDABCED0058E115 /* BMBaseView.m in Sources */,
 				8C40AE661ED865A1000C8D2B /* BookMountainEngine.swift in Sources */,
 				8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */,
+				83B745701EDABCED0058E115 /* NSObject+BMNotification.m in Sources */,
+				83B7457B1EDABCED0058E115 /* ServiceInspector_WindowHook.m in Sources */,
+				83B745731EDABCED0058E115 /* BMBaseParam.m in Sources */,
+				83B745811EDABCED0058E115 /* BMBaseViewController.m in Sources */,
+				83B7457F1EDABCED0058E115 /* BMBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +712,17 @@
 			baseConfigurationReference = 65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MWQU2YKZK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BookMountain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dym.BookMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Action/BookMountain-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -459,14 +732,16 @@
 			baseConfigurationReference = C82ED84AA95C66FC79EFC356 /* Pods-BookMountain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MWQU2YKZK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BookMountain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dym.BookMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Action/BookMountain-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -7,14 +7,17 @@
 	<key>sources</key>
 	<array>
 		<dict>
-			<key>baseURL</key>
-			<string></string>
-			<key>searhURL</key>
-			<string></string>
-			<key>requestEncoding</key>
-			<string></string>
-			<key>shouldPretendAsComputer</key>
-			<string></string>
+			<key>webSiteConfig</key>
+			<dict>
+				<key>shouldPretendAsComputer</key>
+				<string></string>
+				<key>requestEncoding</key>
+				<string></string>
+				<key>searhURL</key>
+				<string></string>
+				<key>baseURL</key>
+				<string></string>
+			</dict>
 			<key>parsingPatterns</key>
 			<dict>
 				<key>list</key>

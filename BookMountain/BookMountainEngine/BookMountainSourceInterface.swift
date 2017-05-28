@@ -15,7 +15,7 @@ class BookMountainSource {
     var shouldPretendAsComputer: Bool?
     var parsingPatterns: BookParsingPatterns?
     
-    func searchURL(withKeyword keyword: String, page: Int) -> String {
-        return ""
-    }
+//    func searchURL(withKeyword keyword: String, page: Int) -> String {
+//        return ""
+//    }
 }

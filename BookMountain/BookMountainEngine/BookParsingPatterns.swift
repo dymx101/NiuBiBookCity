@@ -9,7 +9,7 @@
 import Foundation
 
 /// BookParsingPatterns 用于配置图书解析时的正则表达式
-class BookParsingPatterns {
+class BookParsingPatterns:NSObject {
     
     /// 用于解析出图书列表
     var list: String?
@@ -29,4 +29,13 @@ class BookParsingPatterns {
     var chapterDetail: String?
     /// 用于解析出章节内容
     var chapterContent: String?
+    
+    
+    func loadConfig(dic:NSDictionary)
+    {
+        self.title = self.value(forKey: "1") as! String
+        
+        
+        
+    }
 }

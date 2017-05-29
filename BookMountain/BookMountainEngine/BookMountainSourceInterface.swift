@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BookMountainSource {
+class BookMountainSource:NSObject {
     
     var baseURL: String?
     var requestEncoding: String.Encoding?
@@ -18,4 +18,20 @@ class BookMountainSource {
 //    func searchURL(withKeyword keyword: String, page: Int) -> String {
 //        return ""
 //    }
+    
+    func loadConfig(dic:NSDictionary)
+    {
+        //        self.title = self.value(forKey: "1") as! String
+        //        #keyPath(BookParsingPatterns.title)
+        //        #keyPath(self.title)
+        let structMirror = Mirror(reflecting: self).children
+        let numChildren = structMirror.count
+        print("child count:\(numChildren)")
+        for case let (key,value) in structMirror {
+            self.setValue("123", forKey: key!)
+            //            print("name: \(key) value: \(value)")
+        }
+        
+        
+    }
 }

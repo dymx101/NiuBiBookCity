@@ -66,20 +66,38 @@ class BookMountainEngine:NSObject {
         let strPage:String = String(stringInterpolationSegment: baseParam.paramInt)
         let strUrl:String = String(format: (webSources?.searhURL)!, arguments: [strKeyWord,strPage])
         
+        let curUrl = URL(string: strUrl);
         
-        let strUrl2 = "http://www.baidu.com"
-        Alamofire.request(strUrl2).response { response in
+        
+        let dict = ["q":strKeyWord,"p":strPage,"s":"8253726671271885340","nsid":"0"]
+        
+        //let strUrl2 = "http://www.baidu.com"
+        Alamofire.request((webSources?.searhURL)!, method: .get, parameters: dict).response
+//        Alamofire.request(webSources?.searhURL ,parameters: dict)
+            { response in
             
-            print("Request: \(response.request)")
-            print("Response: \(response.response)")
-            print("Error: \(response.error)")
-            
+//            print("Request: \(response.request)")
+//            print("Response: \(response.response)")
+//            print("Error: \(response.error)")
+            if(response.error != nil)
+            {
+                if let error = (response.error as NSError?)
+                {
+                    baseParam.withresultobjectblock(Int32(error.code),error.localizedDescription,nil)
+                }
+                else
+                {
+                    baseParam.withresultobjectblock(-1,"error",nil)
+                }
+                return
+            }
+                
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
             }
 //            print(response)
         }
-         //       let strUrl:String = String(format: <#T##String#>, arguments: <#T##[CVarArg]#>)
+         //       let strUrl:String = String(format: String, arguments: <#T##[CVarArg]#>)
         
 //
 //        

@@ -10,7 +10,7 @@
 			<key>baseURL</key>
 			<string>http://www.23us.com/</string>
 			<key>searhURL</key>
-			<string>http://so.23us.com/cse/search?q=%@&amp;p=%@&amp;s=8253726671271885340&amp;nsid=</string>
+			<string>http://so.23us.com/cse/search</string>
 			<key>requestEncoding</key>
 			<string>utf-8</string>
 			<key>shouldPretendAsComputer</key>

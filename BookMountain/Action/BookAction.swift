@@ -11,7 +11,21 @@ import UIKit
 class BookAction: NSObject {
     
     public func getSearchBookResult(baseParam: BMBaseParam) {
-        
+        BookMountainEngineManager.shared.getSearchBookResult(baseParam: baseParam)
     }
-
+    
+    public func testIt()
+    {
+        print("12312312313123")
+        print("12312312313123")
+        print("12312312313123")
+    }
+    
+    
+    public func testIt(str:String)
+    {
+        print("12312312313123")
+        print("12312312313123")
+        print("12312312313123")
+    }
 }

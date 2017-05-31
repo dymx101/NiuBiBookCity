@@ -7,39 +7,36 @@
 	<key>sources</key>
 	<array>
 		<dict>
-			<key>webSiteConfig</key>
-			<dict>
-				<key>shouldPretendAsComputer</key>
-				<string></string>
-				<key>requestEncoding</key>
-				<string></string>
-				<key>searhURL</key>
-				<string></string>
-				<key>baseURL</key>
-				<string></string>
-			</dict>
+			<key>baseURL</key>
+			<string>http://www.23us.com/</string>
+			<key>searhURL</key>
+			<string>http://so.23us.com/cse/search?q=%@&amp;p=%@&amp;s=8253726671271885340&amp;nsid=</string>
+			<key>requestEncoding</key>
+			<string>utf-8</string>
+			<key>shouldPretendAsComputer</key>
+			<false/>
 			<key>parsingPatterns</key>
 			<dict>
 				<key>list</key>
-				<string></string>
+				<string>11</string>
 				<key>title</key>
-				<string></string>
+				<string>22</string>
 				<key>bookLink</key>
-				<string></string>
+				<string>22</string>
 				<key>author</key>
-				<string></string>
+				<string>22</string>
 				<key>imageSrc</key>
-				<string></string>
+				<string>33</string>
 				<key>memo</key>
-				<string></string>
+				<string>44</string>
 				<key>chapterContainter</key>
-				<string></string>
+				<string>44</string>
 				<key>chapterItem</key>
-				<string></string>
+				<string>55</string>
 				<key>chapterDetail</key>
-				<string></string>
+				<string>66</string>
 				<key>chapterContent</key>
-				<string></string>
+				<string>77</string>
 			</dict>
 		</dict>
 	</array>

@@ -56,7 +56,7 @@ DEF_SINGLETON(BMActionManager)
         
 
         [self.actionDic setObject:idObject forKey:strClassName];
-        idObject =  [[NSClassFromString(strClassName) alloc]init];
+//        idObject =  [[NSClassFromString(strClassName) alloc]init];
     }
     
     //将一个字符串方法转换成为SEL对象

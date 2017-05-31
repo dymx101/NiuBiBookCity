@@ -9,7 +9,7 @@
 import Foundation
 
 /// BookParsingPatterns 用于配置图书解析时的正则表达式
-class BookParsingPatterns:NSObject {
+class BookParsingPatterns:BaseModel {
     
     /// 用于解析出图书列表
     var list: String?
@@ -31,19 +31,19 @@ class BookParsingPatterns:NSObject {
     var chapterContent: String?
     
     
-    func loadConfig(dic:NSDictionary)
-    {
-//        self.title = self.value(forKey: "1") as! String
-//        #keyPath(BookParsingPatterns.title)
-//        #keyPath(self.title)
-        let structMirror = Mirror(reflecting: self).children
-        let numChildren = structMirror.count
-        print("child count:\(numChildren)")
-        for case let (key,value) in structMirror {
-            self.setValue("123", forKey: key!)
-//            print("name: \(key) value: \(value)")
-        }
-        
-        
-    }
+//    func loadConfig(dic:NSDictionary)
+//    {
+////        self.title = self.value(forKey: "1") as! String
+////        #keyPath(BookParsingPatterns.title)
+////        #keyPath(self.title)
+//        let structMirror = Mirror(reflecting: self).children
+//        let numChildren = structMirror.count
+//        print("child count:\(numChildren)")
+//        for case let (key,value) in structMirror {
+//            self.setValue("123", forKey: key!)
+////            print("name: \(key) value: \(value)")
+//        }
+//        
+//        
+//    }
 }

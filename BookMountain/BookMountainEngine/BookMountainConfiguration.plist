@@ -10,7 +10,7 @@
 			<key>baseURL</key>
 			<string>http://www.23us.com/</string>
 			<key>searhURL</key>
-			<string>http://so.23us.com/cse/search</string>
+			<string>http://zhannei.baidu.com/cse/search?q=%@&amp;s=8253726671271885340&amp;nsid=0&amp;p=%@</string>
 			<key>requestEncoding</key>
 			<string>utf-8</string>
 			<key>shouldPretendAsComputer</key>
@@ -18,17 +18,17 @@
 			<key>parsingPatterns</key>
 			<dict>
 				<key>list</key>
-				<string>11</string>
+				<string>&lt;div class=&quot;result-item result-game-item&quot;&gt;([\s\S]*?&lt;/p&gt;\s*?)&lt;/div&gt;</string>
 				<key>title</key>
-				<string>22</string>
+				<string>&lt;a cpos=&quot;title&quot; href=&quot;[^\&quot;]*\&quot; title=&quot;([^\&quot;]*)&quot;</string>
 				<key>bookLink</key>
-				<string>22</string>
+				<string>&lt;a cpos=&quot;img&quot; href=&quot;([^\&quot;]*)&quot;</string>
 				<key>author</key>
-				<string>22</string>
+				<string>&lt;a cpos=&quot;author&quot;[^&gt;]*&gt;([^&lt;]*)&lt;/a&gt;</string>
 				<key>imageSrc</key>
-				<string>33</string>
+				<string>&lt;img src=&quot;([^\&quot;]*)&quot;</string>
 				<key>memo</key>
-				<string>44</string>
+				<string>&lt;p class=&quot;result-game-item-desc&quot;&gt;[^.]*..([\s\S]*?)&lt;/p&gt;</string>
 				<key>chapterContainter</key>
 				<string>44</string>
 				<key>chapterItem</key>

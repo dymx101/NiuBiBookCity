@@ -26,6 +26,7 @@ class BaseModel: NSObject {
         let numChildren = structMirror.count
         print("child count:\(numChildren)")
         for case let (k, _) in structMirror {
+
             
             if(dic[k!] is NSDictionary)
             {
@@ -42,5 +43,7 @@ class BaseModel: NSObject {
     {
         
     }
+    
+    
     
 }

@@ -3,3 +3,4 @@
 //
 
 #import "BMFramework.h"
+#import "BCTBookAnalyzer.h"

@@ -29,5 +29,5 @@ class BCTBookModel: NSObject {
     //网页浏览的时候调用。
     var curChapter: Int = 0
     
-
+    
 }

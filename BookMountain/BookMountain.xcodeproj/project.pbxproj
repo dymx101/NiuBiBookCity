@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83017A5F1EDD61DE00C06496 /* NSObject+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */; };
 		83017A611EDD650700C06496 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A601EDD650700C06496 /* BaseModel.swift */; };
+		832EE3C31EE152800033B217 /* BCTBookAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */; };
 		83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */; };
 		83A9C06D1EDEABA500222660 /* InvokeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C06C1EDEABA500222660 /* InvokeTest.m */; };
 		83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */; };
@@ -61,6 +62,8 @@
 		65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain.debug.xcconfig"; sourceTree = "<group>"; };
 		83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Util.swift"; sourceTree = "<group>"; };
 		83017A601EDD650700C06496 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		832EE3C11EE152800033B217 /* BCTBookAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTBookAnalyzer.h; sourceTree = "<group>"; };
+		832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTBookAnalyzer.m; sourceTree = "<group>"; };
 		83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPublicUtil.swift; sourceTree = "<group>"; };
 		83A9C06B1EDEABA500222660 /* InvokeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvokeTest.h; sourceTree = "<group>"; };
 		83A9C06C1EDEABA500222660 /* InvokeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvokeTest.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 		83017A5D1EDD61AF00C06496 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				832EE3C11EE152800033B217 /* BCTBookAnalyzer.h */,
+				832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */,
 				83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */,
 				83A9C06B1EDEABA500222660 /* InvokeTest.h */,
 				83A9C06C1EDEABA500222660 /* InvokeTest.m */,
@@ -581,6 +586,7 @@
 				83B745791EDABCED0058E115 /* ServiceInspector_Border.m in Sources */,
 				83B745351EDABCDE0058E115 /* BookAction.swift in Sources */,
 				83B745761EDABCED0058E115 /* BMAppManager.m in Sources */,
+				832EE3C31EE152800033B217 /* BCTBookAnalyzer.m in Sources */,
 				83B745711EDABCED0058E115 /* NSObject+BMProperty.m in Sources */,
 				83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */,
 				83B745751EDABCED0058E115 /* BMContext.m in Sources */,

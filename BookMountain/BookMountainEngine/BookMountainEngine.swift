@@ -9,22 +9,14 @@
 import Foundation
 import Alamofire
 
-//protocol BookMountainEngineInterface {
-//    func search(withKeyword keyword:String, page: Int)
-//}
-
 class BookMountainEngine:NSObject {
     
     var webSources: BookMountainSource? = nil
-//    var bookPatterns:BookParsingPatterns? = nil
-    
-    
-    
+
     func search(withKeyword keyword:String, page: Int) {
         
     }
     override init() {
-        // 在构造函数中,如果没有明确super.init(),那么系统会帮助调用super.init()
         
     }
     init(dict:NSDictionary) {
@@ -37,26 +29,8 @@ class BookMountainEngine:NSObject {
         webSources = BookMountainSource(dict: dict)
     }
     
-//    -(void)getSearchBookResult:(BMBaseParam*)baseParam
-//    {
-//    
-//    }
-    
     func getSearchBookResult(baseParam:BMBaseParam)
     {
-//        NSString *strKeyWord = baseParam.paramString;
-//        
-//        if(baseParam.paramInt > 0) {
-//            baseParam.paramInt--;
-//        }
-//        NSString *stringPage = [NSString stringWithFormat:@"%ld",(long)baseParam.paramInt];
-//        
-//        //    NSDictionary *dict = @{@"q":strKeyWord,@"p":stringPage,@"s":@"15772447660171623812",@"nsid":@"",@"entry":@"1"};
-//        //    NSString *strUrl = @"/cse/search";
-//        NSDictionary *dict = @{@"q":strKeyWord,@"p":stringPage,@"s":@"8253726671271885340",@"nsid":@""};
-//        NSString *strUrl = @"/cse/search";
-        
-        
         let strKeyWord:String = baseParam.paramString
         if(baseParam.paramInt > 0)
         {
@@ -66,13 +40,19 @@ class BookMountainEngine:NSObject {
         let strPage:String = String(stringInterpolationSegment: baseParam.paramInt)
         let strUrl:String = String(format: (webSources?.searhURL)!, arguments: [strKeyWord,strPage])
         
-        let curUrl = URL(string: strUrl);
+//        let curUrl = URL(string: strUrl);
+//        
+//        
+//        let dict = ["q":strKeyWord,"p":strPage,"s":"8253726671271885340","nsid":"0"]
         
-        
-        let dict = ["q":strKeyWord,"p":strPage,"s":"8253726671271885340","nsid":"0"]
+//        let str:String = String("http://zhannei.baidu.com/cse/search?q=校花&s=8253726671271885340&nsid=0&isNeedCheckDomain=1&jump=1")
+//        let dic2 = str.urlParameters
         
         //let strUrl2 = "http://www.baidu.com"
-        Alamofire.request((webSources?.searhURL)!, method: .get, parameters: dict).response
+        let dicParam = strUrl.urlParameters
+        let baseUrl = strUrl.baseUrl
+        
+        Alamofire.request(baseUrl!, method: .get, parameters: dicParam).response
 //        Alamofire.request(webSources?.searhURL ,parameters: dict)
             { response in
             
@@ -94,32 +74,97 @@ class BookMountainEngine:NSObject {
                 
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
+                
+                let booklist = self.getBookList(strSource: utf8Text)
+                
+                print(booklist)
+                
+                baseParam.withresultobjectblock(200,"error",nil)
+                
             }
 //            print(response)
         }
-         //       let strUrl:String = String(format: String, arguments: <#T##[CVarArg]#>)
-        
-//
-//        
-//        [[So23wxSessionManager sharedClient] GET:strUrl parameters:dict success:^(NSURLSessionDataTask * __unused task, id responseObject) {
-//            
-//            NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//            
-//            NSMutableArray *bookList = nil;
-//            
-//            bookList = [[NSMutableArray alloc]initWithArray:[self getBookListH23wx:responseStr]];
-//            
-//            baseParam.resultArray = bookList;
-//            if (baseParam.withresultobjectblock) {
-//            baseParam.withresultobjectblock(0,@"",nil);
-//            }
-//            
-//            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
-//            NSLog(@"%@",[error userInfo]);
-//            
-//            if (baseParam.withresultobjectblock) {
-//            baseParam.withresultobjectblock(-1,@"",nil);
-//            }
-//            }];
+      
+
     }
+    
+    func getBookList(strSource:String)->[BCTBookModel]
+    {
+        var bookList:[BCTBookModel] = []
+        
+        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.list) as! [String]
+        
+        for subStrSource in arySource
+        {
+            let bookmode = getBookModel(strSource: subStrSource)
+            bookList.append(bookmode)
+        }
+        
+        return bookList
+    }
+    
+    func getBookModel(strSource:String)->BCTBookModel
+    {
+        let book:BCTBookModel = BCTBookModel()
+        
+        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.title)
+        book.imgSrc = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.imageSrc)
+        book.bookLink = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.bookLink)
+        
+        book.author = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.author)
+        book.memo = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.memo)
+        
+        
+        
+//        book.imgSrc = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<img src=\"([^\"]*)\""];
+//        book.bookLink = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"img\" href=\"([^\"]*)\""];
+//        
+//        book.author = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"author\"[^>]*>([^<]*)</a>"];
+//        book.author = [book.author stringByReplacingOccurrencesOfString:@" " withString:@""];
+//        book.author = [book.author stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+//        
+//        
+//        book.memo = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<p class=\"result-game-item-desc\">[^.]*..([\\s\\S]*?)</p>"];
+//        book.memo = [book.memo stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
+//        book.memo = [book.memo stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
+        
+        
+        
+        return book
+    }
+    
+//    -(NSArray*)getBookListH23wx:(NSString*)strSource
+//    {
+//    NSString *strPattern = @"<div class=\"result-item result-game-item\">[\\s\\S]*?</p>\\s*?</div>";
+//    
+//    NSArray* arySource = [BCTBookAnalyzer getBookListBaseStr:strSource pattern:strPattern];
+//    NSMutableArray *bookList = [[NSMutableArray alloc]init];
+//    
+//    for (NSString* subStrSource in arySource) {
+//    BCTBookModel *book = [self getBookModeH23wx:subStrSource];
+//    [bookList addObject:book];
+//    }
+//    
+//    return bookList;
+//    }
+//    
+//    -(BCTBookModel*)getBookModeH23wx:(NSString*)strSource {
+//    BCTBookModel *book = [BCTBookModel new];
+//    
+//    book.title = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"title\" href=\"\[^\"]*\" title=\"([^\"]*)\""];
+//    book.imgSrc = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<img src=\"([^\"]*)\""];
+//    book.bookLink = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"img\" href=\"([^\"]*)\""];
+//    
+//    book.author = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"author\"[^>]*>([^<]*)</a>"];
+//    book.author = [book.author stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    book.author = [book.author stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+//    
+//    
+//    book.memo = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<p class=\"result-game-item-desc\">[^.]*..([\\s\\S]*?)</p>"];
+//    book.memo = [book.memo stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
+//    book.memo = [book.memo stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
+//    
+//    return book;
+//    }
+    
 }

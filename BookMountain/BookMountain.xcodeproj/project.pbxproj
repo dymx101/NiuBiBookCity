@@ -10,6 +10,7 @@
 		83017A5F1EDD61DE00C06496 /* NSObject+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */; };
 		83017A611EDD650700C06496 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A601EDD650700C06496 /* BaseModel.swift */; };
 		832EE3C31EE152800033B217 /* BCTBookAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */; };
+		836137031EE4F43E00E5F066 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836137021EE4F43E00E5F066 /* ViewController.swift */; };
 		83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */; };
 		83A9C06D1EDEABA500222660 /* InvokeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C06C1EDEABA500222660 /* InvokeTest.m */; };
 		83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */; };
@@ -37,7 +38,6 @@
 		83B745811EDABCED0058E115 /* BMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456E1EDABCED0058E115 /* BMBaseViewController.m */; };
 		8A5C7ED860C08F80C647C5EC /* Pods_BookMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */; };
 		8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */; };
-		8C40AE411ED84D10000C8D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE401ED84D10000C8D2B /* ViewController.swift */; };
 		8C40AE441ED84D10000C8D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE421ED84D10000C8D2B /* Main.storyboard */; };
 		8C40AE461ED84D10000C8D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE451ED84D10000C8D2B /* Assets.xcassets */; };
 		8C40AE491ED84D10000C8D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE471ED84D10000C8D2B /* LaunchScreen.storyboard */; };
@@ -64,6 +64,7 @@
 		83017A601EDD650700C06496 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		832EE3C11EE152800033B217 /* BCTBookAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTBookAnalyzer.h; sourceTree = "<group>"; };
 		832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTBookAnalyzer.m; sourceTree = "<group>"; };
+		836137021EE4F43E00E5F066 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPublicUtil.swift; sourceTree = "<group>"; };
 		83A9C06B1EDEABA500222660 /* InvokeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvokeTest.h; sourceTree = "<group>"; };
 		83A9C06C1EDEABA500222660 /* InvokeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvokeTest.m; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		83B7456E1EDABCED0058E115 /* BMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseViewController.m; sourceTree = "<group>"; };
 		8C40AE3B1ED84D10000C8D2B /* BookMountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C40AE401ED84D10000C8D2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C40AE431ED84D10000C8D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C40AE451ED84D10000C8D2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C40AE481ED84D10000C8D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -171,6 +171,14 @@
 				83A9C06C1EDEABA500222660 /* InvokeTest.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		836137011EE4F43E00E5F066 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				836137021EE4F43E00E5F066 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		83B744D81EDAB2160058E115 /* Model */ = {
@@ -375,8 +383,8 @@
 		8C40AE3D1ED84D10000C8D2B /* BookMountain */ = {
 			isa = PBXGroup;
 			children = (
+				836137011EE4F43E00E5F066 /* View */,
 				8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */,
-				8C40AE401ED84D10000C8D2B /* ViewController.swift */,
 				8C40AE421ED84D10000C8D2B /* Main.storyboard */,
 				8C40AE451ED84D10000C8D2B /* Assets.xcassets */,
 				8C40AE471ED84D10000C8D2B /* LaunchScreen.storyboard */,
@@ -574,7 +582,6 @@
 				83B744DC1EDAB3650058E115 /* BCTBookChapterModel.swift in Sources */,
 				8C40AE621ED85469000C8D2B /* BookParsingPatterns.swift in Sources */,
 				83B745781EDABCED0058E115 /* BMControl.m in Sources */,
-				8C40AE411ED84D10000C8D2B /* ViewController.swift in Sources */,
 				83B7457D1EDABCED0058E115 /* BMBaseTabBarController.m in Sources */,
 				83B7457C1EDABCED0058E115 /* BMUIApplication.m in Sources */,
 				83B7457E1EDABCED0058E115 /* BMBaseTableViewCell.m in Sources */,
@@ -586,6 +593,7 @@
 				83B745791EDABCED0058E115 /* ServiceInspector_Border.m in Sources */,
 				83B745351EDABCDE0058E115 /* BookAction.swift in Sources */,
 				83B745761EDABCED0058E115 /* BMAppManager.m in Sources */,
+				836137031EE4F43E00E5F066 /* ViewController.swift in Sources */,
 				832EE3C31EE152800033B217 /* BCTBookAnalyzer.m in Sources */,
 				83B745711EDABCED0058E115 /* NSObject+BMProperty.m in Sources */,
 				83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */,

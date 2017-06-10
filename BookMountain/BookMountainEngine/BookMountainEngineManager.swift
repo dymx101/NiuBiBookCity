@@ -22,6 +22,31 @@ class BookMountainEngineManager: NSObject {
         
     }
     
+    public func getBookChapterList(baseParam: BMBaseParam) {
+        
+        for engine in engineList
+        {
+            if(baseParam.paramString.contains((engine.webSources?.baseURL)!))
+            {
+                engine.getBookChapterList(baseParam: baseParam)
+            }
+            
+        }
+        
+    }
+    
+    public func getBookChapterDetail(baseParam:BMBaseParam)
+    {
+        for engine in engineList
+        {
+            if(baseParam.paramString.contains((engine.webSources?.baseURL)!))
+            {
+                engine.getBookChapterDetail(baseParam: baseParam)
+            }
+            
+        }
+    }
+    
     override init() {
         super.init()
         self.loadConfig()

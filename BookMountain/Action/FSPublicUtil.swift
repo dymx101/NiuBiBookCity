@@ -15,7 +15,10 @@ class FSPublicUtil: NSObject {
     
     
     public static let DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT = "getSearchBookResultWithBaseParam:"
-    
+    public static let DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST =
+    "getBookChapterListWithBaseParam:"
+    public static let DEF_ACTIONIDCMD_GETBOOKCHAPTERDETAIL =
+    "getBookChapterDetailWithBaseParam:"
     
     
 //    #define DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT @"getSearchBookResult:"

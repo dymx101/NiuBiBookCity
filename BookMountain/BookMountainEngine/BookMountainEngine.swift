@@ -52,9 +52,7 @@ class BookMountainEngine:NSObject {
         let dicParam = strUrl.urlParameters
         let baseUrl = strUrl.baseUrl
         
-        Alamofire.request(baseUrl!, method: .get, parameters: dicParam).response
-//        Alamofire.request(webSources?.searhURL ,parameters: dict)
-            { response in
+        Alamofire.request(baseUrl!, method: .get, parameters: dicParam).response{ response in
             
 //            print("Request: \(response.request)")
 //            print("Response: \(response.response)")
@@ -75,14 +73,11 @@ class BookMountainEngine:NSObject {
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
                 
-                let booklist = self.getBookList(strSource: utf8Text)
-                
-                print(booklist)
-                
-                baseParam.withresultobjectblock(200,"error",nil)
+                baseParam.paramArray = self.getBookList(strSource: utf8Text) as! NSMutableArray
+                print(baseParam.paramArray)
                 
             }
-//            print(response)
+                baseParam.withresultobjectblock(0,"error",nil)
         }
       
 
@@ -112,59 +107,185 @@ class BookMountainEngine:NSObject {
         book.bookLink = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.bookLink)
         
         book.author = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.author)
+        book.author = BCTBookAnalyzer.dealDatailString(book.author)
         book.memo = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.memo)
         
-        
-        
-//        book.imgSrc = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<img src=\"([^\"]*)\""];
-//        book.bookLink = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"img\" href=\"([^\"]*)\""];
-//        
-//        book.author = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"author\"[^>]*>([^<]*)</a>"];
-//        book.author = [book.author stringByReplacingOccurrencesOfString:@" " withString:@""];
-//        book.author = [book.author stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-//        
-//        
-//        book.memo = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<p class=\"result-game-item-desc\">[^.]*..([\\s\\S]*?)</p>"];
-//        book.memo = [book.memo stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
-//        book.memo = [book.memo stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
-        
-        
+        book.memo = BCTBookAnalyzer.dealDatailString(book.memo)
         
         return book
     }
     
-//    -(NSArray*)getBookListH23wx:(NSString*)strSource
+    func getBookChapterList(baseParam:BMBaseParam)
+    {
+        let strUrl:String = baseParam.paramString
+        
+        Alamofire.request(strUrl).response{ response in
+            
+            if(response.error != nil)
+            {
+                if let error = (response.error as NSError?)
+                {
+                    baseParam.withresultobjectblock(Int32(error.code),error.localizedDescription,nil)
+                }
+                else
+                {
+                    baseParam.withresultobjectblock(-1,"error",nil)
+                }
+                return
+            }
+            
+            if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632)) {
+                print("Data: \(contentText)")
+                baseParam.paramArray = self.getChapterList(strSource: contentText,strUrl: baseParam.paramString) as! NSMutableArray
+            }
+            baseParam.withresultobjectblock(0,"error",nil)
+        }
+
+        
+    }
+    
+    func getChapterList(strSource:String,strUrl:String)->[BCTBookChapterModel]
+    {
+        var aryChapterList:[BCTBookChapterModel] = []
+//        let regular:NSRegularExpression = NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.chapterItem)!, options: NSRegularExpression.Options.caseInsensitive)
+        
+//               let regular:NSRegularExpression = NSRegularExpression(pattern: <#T##String#>, options: <#T##NSRegularExpression.Options#>)
+//        let regular:NSRegularExpression = NSRegularExpression(pattern: <#T##String#>, options: <#T##NSRegularExpression.Options#>)
+        do {
+             let regular:NSRegularExpression =  try NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.chapterItem)!, options: NSRegularExpression.Options.caseInsensitive)
+            let results = regular.matches(in: strSource, range: NSMakeRange(0, strSource.characters.count))
+            
+            let strSourceNS = strSource as NSString
+            for match in results
+            {
+                let bookchaptermodel = BCTBookChapterModel()
+                
+                //        bookchaptermodel.url = [strSource substringWithRange:[match rangeAtIndex:1]];
+                //        bookchaptermodel.url = [NSString stringWithFormat:@"%@%@",strUrl,bookchaptermodel.url];
+                //        bookchaptermodel.title = [strSource substringWithRange:[match rangeAtIndex:2]];
+                //        bookchaptermodel.hostUrl = [self.sessionManager getBaseUrl];
+                
+//                bookchaptermodel.url = strSource.substring(with: match.rangeAt(<#Int#>))
+                
+//                let tempRange = match.rangeAt(1)
+//                let indexRange = strSource.index(tempRange.index, offsetBy: tempRange.offsetBy)
+                
+
+                bookchaptermodel.url = strSourceNS.substring(with: match.rangeAt(1)) as String
+                if(!bookchaptermodel.url.contains(self.webSources!.baseURL!))
+                {
+                    bookchaptermodel.url = String(format:"%@%@",arguments: [strUrl,bookchaptermodel.url])
+                    
+                }
+
+//
+//                bookchaptermodel.url = strSource.substring(with: indexRange)
+                bookchaptermodel.title = strSourceNS.substring(with: match.rangeAt(2)) as String
+                bookchaptermodel.hostUrl = self.webSources!.baseURL!
+                
+                aryChapterList.append(bookchaptermodel)
+            }
+            
+        }catch {
+            print(error)
+        }
+        
+        
+        return aryChapterList
+    }
+    
+    
+//    -(void)getBookChapterDetail:(BMBaseParam*)baseParam {
+//    //paramString2 保存chapterDetail url
+//    NSString *strUrl = baseParam.paramString2;
+//    
+//    strUrl = [strUrl stringByReplacingOccurrencesOfString:[self.sessionManager getBaseUrl] withString:@""];
+//    
+//    __weak H23wxEngine *weakSelf = self;
+//    [[H23wxSessionManager sharedClient] GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
+//    
+//    NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:0x80000632];
+//    
+//    baseParam.resultString = [weakSelf getChapterContent:responseStr];
+//    
+//    BCTBookChapterModel* bookchaptermodel = (BCTBookChapterModel*)baseParam.paramObject;
+//    bookchaptermodel.content = [weakSelf getChapterContentText:baseParam.resultString];
+//    bookchaptermodel.htmlContent = baseParam.resultString;
+//    if (baseParam.withresultobjectblock) {
+//    baseParam.withresultobjectblock(0,@"",nil);
+//    }
+//    
+//    } failure:^(NSURLSessionDataTask *__unused task, NSError *error)
 //    {
-//    NSString *strPattern = @"<div class=\"result-item result-game-item\">[\\s\\S]*?</p>\\s*?</div>";
-//    
-//    NSArray* arySource = [BCTBookAnalyzer getBookListBaseStr:strSource pattern:strPattern];
-//    NSMutableArray *bookList = [[NSMutableArray alloc]init];
-//    
-//    for (NSString* subStrSource in arySource) {
-//    BCTBookModel *book = [self getBookModeH23wx:subStrSource];
-//    [bookList addObject:book];
+//    NSLog(@"%@",[error userInfo]);
+//    if (baseParam.withresultobjectblock) {
+//    baseParam.withresultobjectblock(-1,@"",nil);
 //    }
 //    
-//    return bookList;
+//    }];
 //    }
+    
+    func getBookChapterDetail(baseParam:BMBaseParam)
+    {
+        let strUrl:String = baseParam.paramString
+        
+        Alamofire.request(strUrl).response{ response in
+            
+            if(response.error != nil)
+            {
+                if let error = (response.error as NSError?)
+                {
+                    baseParam.withresultobjectblock(Int32(error.code),error.localizedDescription,nil)
+                }
+                else
+                {
+                    baseParam.withresultobjectblock(-1,"error",nil)
+                }
+                return
+            }
+            
+            if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632)) {
+                print("Data: \(contentText)")
+//                baseParam.paramArray = self.getChapterList(strSource: contentText,strUrl: baseParam.paramString) as! NSMutableArray
+                
+                //    baseParam.resultString = [weakSelf getChapterContent:responseStr];
+                //
+                //    BCTBookChapterModel* bookchaptermodel = (BCTBookChapterModel*)baseParam.paramObject;
+                //    bookchaptermodel.content = [weakSelf getChapterContentText:baseParam.resultString];
+                //    bookchaptermodel.htmlContent = baseParam.resultString;
+                
+                baseParam.resultString = self.getChapterContent(strSource: contentText)
+                let bookchaptermodel = baseParam.paramObject as! BCTBookChapterModel
+                bookchaptermodel.content = self.getChapterContentText(strSource: baseParam.resultString)
+                bookchaptermodel.htmlContent = baseParam.resultString
+            }
+            baseParam.withresultobjectblock(0,"error",nil)
+        }
+    }
+    
+    func getChapterContent(strSource:String)->String {
+        let strContent = BCTBookAnalyzer.getStrGroup1(strSource, pattern: self.webSources?.parsingPatterns?.chapterDetail)
+        return strContent!
+    }
+    
+    func getChapterContentText(strSource:String)->String
+    {
+        let strContentText = BCTBookAnalyzer.getChapterContentText(strSource)
+        return strContentText!
+    }
+//    -(NSString*)getChapterContent:(NSString*)strSource {
+//    NSString *strPattern = @"<dd id=\"contents\">([\\s\\S]*?)</dd>";
+//    NSString *strContent = [BCTBookAnalyzer getStrGroup1:strSource pattern:strPattern];
 //    
-//    -(BCTBookModel*)getBookModeH23wx:(NSString*)strSource {
-//    BCTBookModel *book = [BCTBookModel new];
-//    
-//    book.title = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"title\" href=\"\[^\"]*\" title=\"([^\"]*)\""];
-//    book.imgSrc = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<img src=\"([^\"]*)\""];
-//    book.bookLink = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"img\" href=\"([^\"]*)\""];
-//    
-//    book.author = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a cpos=\"author\"[^>]*>([^<]*)</a>"];
-//    book.author = [book.author stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    book.author = [book.author stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-//    
-//    
-//    book.memo = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<p class=\"result-game-item-desc\">[^.]*..([\\s\\S]*?)</p>"];
-//    book.memo = [book.memo stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
-//    book.memo = [book.memo stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
-//    
-//    return book;
+//    return strContent ? : @"";
 //    }
+    
+//    -(NSString*)getChapterContentText:(NSString*)strSource {
+//    NSString *strContent = [BCTBookAnalyzer getChapterContentText:strSource];
+//    return strContent ? : @"";
+//    }
+
+    
+
     
 }

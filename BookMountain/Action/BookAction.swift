@@ -13,6 +13,14 @@ class BookAction: NSObject {
     public func getSearchBookResult(baseParam: BMBaseParam) {
         BookMountainEngineManager.shared.getSearchBookResult(baseParam: baseParam)
     }
+    public func getBookChapterList(baseParam:BMBaseParam)
+    {
+        BookMountainEngineManager.shared.getBookChapterList(baseParam: baseParam)
+    }
+    public func getBookChapterDetail(baseParam:BMBaseParam)
+    {
+        BookMountainEngineManager.shared.getBookChapterDetail(baseParam: baseParam)
+    }
     
     public func testIt()
     {

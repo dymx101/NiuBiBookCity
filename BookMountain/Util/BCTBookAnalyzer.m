@@ -11,7 +11,7 @@
 @implementation BCTBookAnalyzer
 
 + (NSString*)getStrGroup1:(NSString*)strSource
-           pattern:(NSString*)strPattern
+                  pattern:(NSString*)strPattern
 {
     NSString* strResult = @"";
     
@@ -33,7 +33,7 @@
                    pattern:(NSString*)strPattern
 {
     NSMutableArray *retArray = [NSMutableArray new];
-//    NSString* strResult = @"";
+    //    NSString* strResult = @"";
     
     if (strSource.length > 0 && strPattern.length > 0) {
         NSRegularExpression *regular = [[NSRegularExpression alloc]initWithPattern:strPattern options:NSRegularExpressionCaseInsensitive error:nil];
@@ -44,15 +44,15 @@
         {
             
             
-
             
-           NSTextCheckingResult* textcheckingresult = ((NSTextCheckingResult*)[matchs objectAtIndex:i]);
             
-//            for(int i=1;i<[textcheckingresult numberOfRanges];i++)
-//            {
-                NSString* strResult = [strSource substringWithRange:[textcheckingresult rangeAtIndex:1]];
-                [retArray addObject:strResult];
-//            }
+            NSTextCheckingResult* textcheckingresult = ((NSTextCheckingResult*)[matchs objectAtIndex:i]);
+            
+            //            for(int i=1;i<[textcheckingresult numberOfRanges];i++)
+            //            {
+            NSString* strResult = [strSource substringWithRange:[textcheckingresult rangeAtIndex:1]];
+            [retArray addObject:strResult];
+            //            }
         }
     }
     return retArray;
@@ -146,6 +146,25 @@
     strContent = [strContent stringByReplacingOccurrencesOfString:@"<br />" withString:@"\r\n"];
     strContent = [strContent stringByReplacingOccurrencesOfString:@"\r\n\r\n" withString:@"\r\n"];
     return strContent;
+    
+}
+
++ (NSString*)dealDatailString:(NSString*)strSource
+{
+    //&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    //    NSString *strContent = @"";
+    
+    
+    strSource = [strSource stringByReplacingOccurrencesOfString:@" " withString:@""];
+    strSource = [strSource stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+    
+    
+    
+    strSource = [strSource stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
+    strSource = [strSource stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
+    
+    return strSource;
     
 }
 

@@ -15,11 +15,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        let str:String = String("http://zhannei.baidu.com/cse/search?q=校花&s=8253726671271885340&nsid=0&isNeedCheckDomain=1&jump=1")
-        let dic = str.urlParameters
-        print(dic)
-//        BookMountainEngineManager.shared;
-        test()
+//        let str:String = String("http://zhannei.baidu.com/cse/search?q=校花&s=8253726671271885340&nsid=0&isNeedCheckDomain=1&jump=1")
+//        let dic = str.urlParameters
+//        print(dic)
+////        BookMountainEngineManager.shared;
+//        test()
     }
 
     override func didReceiveMemoryWarning() {

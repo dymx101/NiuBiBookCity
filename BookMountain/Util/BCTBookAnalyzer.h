@@ -34,4 +34,6 @@
             pattern:(NSString*)strPattern;
 
 + (NSString*)getChapterContentText:(NSString*)strSource;
+
++ (NSString*)dealDatailString:(NSString*)strSource;
 @end

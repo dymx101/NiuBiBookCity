@@ -66,6 +66,14 @@ class BookMountainEngineManager: NSObject {
                 engineList.append(engine)
             }
         }
+
+        
+        if let plistPath = Bundle.main.path(forResource: "bookCityConfig", ofType: "plist") {
+            let dicConfig = NSDictionary(contentsOfFile: plistPath)
+
+            
+        }
+        
     }
     
 

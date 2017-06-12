@@ -179,7 +179,7 @@ class BookMountainEngine:NSObject {
                 }
 
 //
-//                bookchaptermodel.url = strSource.substring(with: indexRange)
+//              bookchaptermodel.url = strSource.substring(with: indexRange)
                 bookchaptermodel.title = strSourceNS.substring(with: match.rangeAt(2)) as String
                 bookchaptermodel.hostUrl = self.webSources!.baseURL!
                 
@@ -194,36 +194,6 @@ class BookMountainEngine:NSObject {
         return aryChapterList
     }
     
-    
-//    -(void)getBookChapterDetail:(BMBaseParam*)baseParam {
-//    //paramString2 保存chapterDetail url
-//    NSString *strUrl = baseParam.paramString2;
-//    
-//    strUrl = [strUrl stringByReplacingOccurrencesOfString:[self.sessionManager getBaseUrl] withString:@""];
-//    
-//    __weak H23wxEngine *weakSelf = self;
-//    [[H23wxSessionManager sharedClient] GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
-//    
-//    NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:0x80000632];
-//    
-//    baseParam.resultString = [weakSelf getChapterContent:responseStr];
-//    
-//    BCTBookChapterModel* bookchaptermodel = (BCTBookChapterModel*)baseParam.paramObject;
-//    bookchaptermodel.content = [weakSelf getChapterContentText:baseParam.resultString];
-//    bookchaptermodel.htmlContent = baseParam.resultString;
-//    if (baseParam.withresultobjectblock) {
-//    baseParam.withresultobjectblock(0,@"",nil);
-//    }
-//    
-//    } failure:^(NSURLSessionDataTask *__unused task, NSError *error)
-//    {
-//    NSLog(@"%@",[error userInfo]);
-//    if (baseParam.withresultobjectblock) {
-//    baseParam.withresultobjectblock(-1,@"",nil);
-//    }
-//    
-//    }];
-//    }
     
     func getBookChapterDetail(baseParam:BMBaseParam)
     {
@@ -246,14 +216,6 @@ class BookMountainEngine:NSObject {
             
             if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632)) {
                 print("Data: \(contentText)")
-//                baseParam.paramArray = self.getChapterList(strSource: contentText,strUrl: baseParam.paramString) as! NSMutableArray
-                
-                //    baseParam.resultString = [weakSelf getChapterContent:responseStr];
-                //
-                //    BCTBookChapterModel* bookchaptermodel = (BCTBookChapterModel*)baseParam.paramObject;
-                //    bookchaptermodel.content = [weakSelf getChapterContentText:baseParam.resultString];
-                //    bookchaptermodel.htmlContent = baseParam.resultString;
-                
                 baseParam.resultString = self.getChapterContent(strSource: contentText)
                 let bookchaptermodel = baseParam.paramObject as! BCTBookChapterModel
                 bookchaptermodel.content = self.getChapterContentText(strSource: baseParam.resultString)

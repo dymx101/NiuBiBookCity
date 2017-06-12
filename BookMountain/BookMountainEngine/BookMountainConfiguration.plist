@@ -34,7 +34,7 @@
 				<key>chapterItem</key>
 				<string>&lt;td class=&quot;L&quot;&gt;&lt;a href=&quot;([^\&quot;]*)&quot;&gt;([^&lt;]*)&lt;/a&gt;</string>
 				<key>chapterDetail</key>
-				<string>66</string>
+				<string>&lt;dd id=&quot;contents&quot;&gt;([\s\S]*?)&lt;/dd&gt;</string>
 				<key>chapterContent</key>
 				<string>77</string>
 			</dict>

@@ -89,10 +89,15 @@ class BookMountainTests: XCTestCase {
     
     func testBookDetail()
     {
+        //BCTBookChapterModel *chapter = [_bookModel.aryChapterList objectAtIndex:_chapterIndex];
+        
+        let chapter:BCTBookChapterModel = BCTBookChapterModel()
+        chapter.url = "http://www.23us.com/html/12/12100/9864883.html"
         
         let expect = self.expectation(description: "testBookDetail")
         let baseparam:BMBaseParam = BMBaseParam()
         baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
+        baseparam.paramObject = chapter
         baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
             
             if(errorId == 0)
@@ -115,6 +120,7 @@ class BookMountainTests: XCTestCase {
         
         self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
             print(error ?? "")
+            
         }
         
     }

@@ -37,6 +37,28 @@
 				<string>&lt;dd id=&quot;contents&quot;&gt;([\s\S]*?)&lt;/dd&gt;</string>
 				<key>chapterContent</key>
 				<string>77</string>
+				<key>categoryList</key>
+				<string>&lt;tr bgcolor=&quot;#FFFFFF&quot;&gt;([\s\S]*?)&lt;/tr&gt;</string>
+				<key>categoryListTitle</key>
+				<string>&lt;td class=&quot;L&quot;&gt;[\s\S]*?&lt;/a&gt;&lt;a [^&gt;]*&gt;(.*?)&lt;/a&gt;</string>
+				<key>categoryListbookLink</key>
+				<string>&lt;a href=&quot;([^\&quot;]*)&quot; target=&quot;_blank&quot;&gt;</string>
+				<key>categoryListAuthor</key>
+				<string>&lt;td class=&quot;C&quot;&gt;(.*?)&lt;/td&gt;[\s\S]*?&lt;td class=&quot;R&quot;&gt;</string>
+				<key>categoryListImageSrc</key>
+				<string></string>
+				<key>categoryListMemo</key>
+				<string></string>
+				<key>categoryListImageFunction</key>
+				<string>function getImageUrl(strBooklink)
+{
+
+var strs= new Array(); 
+strs= strBooklink.split(&quot;/&quot;);  
+var count = strs.length;
+var strRet = &quot;http://www.23us.com/files/article/image/&quot;+strs[count-3]+&quot;/&quot;+strs[count-2]+&quot;/&quot;+strs[count-2]+&quot;s.jpg&quot;;
+return strRet;
+}</string>
 			</dict>
 		</dict>
 	</array>

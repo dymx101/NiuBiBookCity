@@ -47,34 +47,41 @@ class BookMountainEngineManager: NSObject {
         }
     }
     
-    override init() {
-        super.init()
-        self.loadConfig()
+    public func getCategoryBooksResult(baseParam:BMBaseParam)
+    {
+        for engine in engineList
+        {
+            for strUrl in baseParam.paramArray
+            {
+                if((strUrl as! String).contains((engine.webSources?.baseURL)!))
+                {
+                    baseParam.paramString = strUrl as! String
+                    engine.getCategoryBooksResult(baseParam: baseParam)
+                }
+
+            }
+            
+            
+        }
     }
     
-    //
-    func loadConfig()
-    {
-        if let plistPath = Bundle.main.path(forResource: "BookMountainConfiguration", ofType: "plist") {
-            let dicConfig = NSDictionary(contentsOfFile: plistPath)
-            print(loadConfig ?? "get config error")
-            
-            let engineDics = dicConfig?["sources"] as! [NSDictionary];
-            for engineDic in engineDics
-            {
-                let engine = BookMountainEngine(dict: engineDic)
-                engineList.append(engine)
-            }
-        }
-
-        
-        if let plistPath = Bundle.main.path(forResource: "bookCityConfig", ofType: "plist") {
-            let dicConfig = NSDictionary(contentsOfFile: plistPath)
-
-            
-        }
+    
+    override init() {
+        super.init()
+        self.loadEngines()
         
     }
+    
+    func loadEngines()
+    {
+        for engineDic in BCTBookCityConfig.shared.engineDics
+        {
+            let engine = BookMountainEngine(dict: engineDic)
+            engineList.append(engine)
+        }
+    }
+    
+
     
 
 

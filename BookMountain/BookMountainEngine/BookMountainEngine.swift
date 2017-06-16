@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import JavaScriptCore
 
 class BookMountainEngine:NSObject {
     
@@ -147,10 +148,7 @@ class BookMountainEngine:NSObject {
     func getChapterList(strSource:String,strUrl:String)->[BCTBookChapterModel]
     {
         var aryChapterList:[BCTBookChapterModel] = []
-//        let regular:NSRegularExpression = NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.chapterItem)!, options: NSRegularExpression.Options.caseInsensitive)
-        
-//               let regular:NSRegularExpression = NSRegularExpression(pattern: <#T##String#>, options: <#T##NSRegularExpression.Options#>)
-//        let regular:NSRegularExpression = NSRegularExpression(pattern: <#T##String#>, options: <#T##NSRegularExpression.Options#>)
+
         do {
              let regular:NSRegularExpression =  try NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.chapterItem)!, options: NSRegularExpression.Options.caseInsensitive)
             let results = regular.matches(in: strSource, range: NSMakeRange(0, strSource.characters.count))
@@ -235,16 +233,160 @@ class BookMountainEngine:NSObject {
         let strContentText = BCTBookAnalyzer.getChapterContentText(strSource)
         return strContentText!
     }
-//    -(NSString*)getChapterContent:(NSString*)strSource {
-//    NSString *strPattern = @"<dd id=\"contents\">([\\s\\S]*?)</dd>";
-//    NSString *strContent = [BCTBookAnalyzer getStrGroup1:strSource pattern:strPattern];
-//    
-//    return strContent ? : @"";
-//    }
     
-//    -(NSString*)getChapterContentText:(NSString*)strSource {
-//    NSString *strContent = [BCTBookAnalyzer getChapterContentText:strSource];
-//    return strContent ? : @"";
+    func getCategoryBooksResult(baseParam:BMBaseParam)
+    {
+        
+//                let str:String = String("http://zhannei.baidu.com/cse/search?q=校花&s=8253726671271885340&nsid=0&isNeedCheckDomain=1&jump=1")
+//                let dic2 = str.urlParameters
+
+        let strUrl:String = String(format: baseParam.paramString, baseParam.paramInt)
+        
+        Alamofire.request(strUrl).response{ response in
+            
+            if(response.error != nil)
+            {
+                if let error = (response.error as NSError?)
+                {
+                    baseParam.withresultobjectblock(Int32(error.code),error.localizedDescription,nil)
+                }
+                else
+                {
+                    baseParam.withresultobjectblock(-1,"error",nil)
+                }
+                return
+            }
+            
+            if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632)) {
+                print("Data: \(contentText)")
+//                baseParam.resultString = self.getChapterContent(strSource: contentText)
+//                let bookchaptermodel = baseParam.paramObject as! BCTBookChapterModel
+//                bookchaptermodel.content = self.getChapterContentText(strSource: baseParam.resultString)
+//                bookchaptermodel.htmlContent = baseParam.resultString
+                
+//                baseParam.paramArray = self.getBookList(fromCategory strSource: utf8Text) as! NSMutableArray
+                baseParam.paramArray = self.getBookList(fromCategory: contentText) as! NSMutableArray
+
+                print(baseParam.paramArray)
+
+                
+            }
+            baseParam.withresultobjectblock(0,"error",nil)
+        }
+    }
+    
+    
+    func getBookList(fromCategory strSource:String)->[BCTBookModel]
+    {
+        var bookList:[BCTBookModel] = []
+        
+        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.categoryList) as! [String]
+        
+        for subStrSource in arySource
+        {
+            let bookmode = getBookModel(fromCategory: subStrSource)
+            bookList.append(bookmode)
+        }
+        
+        return bookList
+    }
+    
+    func getBookModel(fromCategory strSource:String)->BCTBookModel
+    {
+        let book:BCTBookModel = BCTBookModel()
+        
+        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListTitle)
+//        book.imgSrc = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.imageSrc)
+        book.bookLink = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListbookLink)
+        
+        book.author = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListAuthor)
+        book.author = BCTBookAnalyzer.dealDatailString(book.author)
+//        book.memo = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.memo)
+//        
+//        book.memo = BCTBookAnalyzer.dealDatailString(book.memo)
+        
+        if(webSources?.parsingPatterns?.categoryListImageFunction?.isEmpty == false)
+        {
+            let context: JSContext = JSContext()
+//            let result1: JSValue = context.evaluateScript("1 + 3")
+//            print(result1)  // 输出4
+//            
+//            // 定义js变量和函数
+//            context.evaluateScript("var num1 = 10; var num2 = 20;")
+            context.evaluateScript(webSources?.parsingPatterns?.categoryListImageFunction)
+            
+            let squareFunc = context.objectForKeyedSubscript("getImageUrl")
+            book.imgSrc = (squareFunc?.call(withArguments: [book.bookLink]).toString())!
+            
+            print(book.imgSrc)
+        }
+        
+        return book
+    }
+    
+//    -(NSMutableArray*)getBookListFromCategoryH23w:(NSString*)strSource {
+//    NSMutableArray *retAry = [NSMutableArray new];
+//    
+//    NSString *strPattern = @"<tr bgcolor=\"#FFFFFF\">[\\s\\S]*?</tr>";
+//    NSArray *ary = [BCTBookAnalyzer getBookListBase:strSource pattern:strPattern];
+//    for (NSTextCheckingResult *match in ary) {
+//    NSString* substringForMatch = [strSource substringWithRange:match.range];
+//    //        NSLog(@"Extracted URL: %@",substringForMatch);
+//    
+//    BCTBookModel *bookModel = [self getBookModelFromCategory:substringForMatch];
+//    [retAry addObject:bookModel];
+//    }
+//    
+//    return retAry;
+//    }
+//    
+//    -(BCTBookModel*)getBookModelFromCategory:(NSString*)strSource {
+//    BCTBookModel *bookmodel = [BCTBookModel new];
+//    
+//    bookmodel.bookLink = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<a href=\"([^\"]*)\" target=\"_blank\">"];
+//    bookmodel.title = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<td class=\"L\">[\\s\\S]*?</a><a [^>]*>(.*?)</a>"];
+//    bookmodel.author = [BCTBookAnalyzer getStrGroup1:strSource pattern:@"<td class=\"C\">(.*?)</td>[\\s\\S]*?<td class=\"R\">"];
+//    
+//    NSArray *aryBookNumber = [bookmodel.bookLink componentsSeparatedByString:@"/"];
+//    
+//    NSString *strBookNumber = [aryBookNumber objectAtIndex:[aryBookNumber count]-2];
+//    
+//    NSString *strBookNumberFront2 = [strBookNumber substringToIndex:2];
+//    
+//    //http://www.23wx.com/files/article/image/59/59945/59945s.jpg
+//    bookmodel.imgSrc = [NSString stringWithFormat:@"http://www.23us.com/files/article/image/%@/%@/%@s.jpg",strBookNumberFront2,strBookNumber,strBookNumber];
+//    
+//    return bookmodel;
+//    }
+
+    
+    
+    
+//    -(void)getCategoryBooksResult:(BMBaseParam*)baseParam {
+//    NSString *strUrl = [NSString stringWithFormat:baseParam.paramString ,(long)baseParam.paramInt];
+//    
+//    strUrl = [strUrl stringByReplacingOccurrencesOfString:[self.sessionManager getBaseUrl] withString:@""];
+//    
+//    [[H23wxSessionManager sharedClient] GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
+//    
+//    NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:0x80000632];
+//    
+//    NSMutableArray *bookList = nil;
+//    
+//    bookList = [self getBookListFromCategoryH23w:responseStr];
+//    
+//    baseParam.resultArray = bookList;
+//    if (baseParam.withresultobjectblock) {
+//    baseParam.withresultobjectblock(0,@"",nil);
+//    }
+//    
+//    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+//    NSLog(@"%@",[error userInfo]);
+//    if (baseParam.withresultobjectblock) {
+//    baseParam.withresultobjectblock(-1,@"",nil);
+//    }
+//    
+//    }];
 //    }
 
     

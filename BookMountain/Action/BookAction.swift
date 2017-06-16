@@ -22,6 +22,11 @@ class BookAction: NSObject {
         BookMountainEngineManager.shared.getBookChapterDetail(baseParam: baseParam)
     }
     
+    public func getCategoryBooksResult(baseParam:BMBaseParam)
+    {
+        BookMountainEngineManager.shared.getCategoryBooksResult(baseParam: baseParam)
+    }
+    
     public func testIt()
     {
         print("12312312313123")

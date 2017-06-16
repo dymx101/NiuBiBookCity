@@ -19,8 +19,9 @@ class FSPublicUtil: NSObject {
     "getBookChapterListWithBaseParam:"
     public static let DEF_ACTIONIDCMD_GETBOOKCHAPTERDETAIL =
     "getBookChapterDetailWithBaseParam:"
-    
-    
+    public static let DEF_ACTIONIDCMD_GETCATEGORYBOOKSRESULT =
+    "getCategoryBooksResultWithBaseParam:"
+
 //    #define DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT @"getSearchBookResult:"
 //    #define DEF_ACTIONIDCMD_GETCATEGORYBOOKSRESULT @"getCategoryBooksResult:"
 //    #define DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST @"getBookChapterList:"

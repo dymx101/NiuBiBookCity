@@ -25,85 +25,113 @@ class BookMountainTests: XCTestCase {
     
     
     
-//    func testSearchKey()
+    //    func testSearchKey()
+    //    {
+    //        let expect = self.expectation(description: "testSearchKey")
+    //        let baseparam:BMBaseParam = BMBaseParam()
+    //        baseparam.paramString = "校花"
+    //        baseparam.paramInt = 1
+    //        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+    //
+    //            if(errorId == 0)
+    //            {
+    //                print("调用成功")
+    //                print(baseparam.paramArray)
+    //            }
+    //            else
+    //            {
+    //
+    //            }
+    //            expect.fulfill()
+    //
+    //        }
+    //        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+    //        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
+    //        dicParam.setParam(baseparam)
+    //        BMControl.sharedInstance().excute(dicParam)
+    //        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+    //            print(error ?? "")
+    //        }
+    //    }
+    
+    //    func testBookList()
+    //    {
+    //
+    //        let expect = self.expectation(description: "testBookList")
+    //        let baseparam:BMBaseParam = BMBaseParam()
+    //        baseparam.paramString = "http://www.23us.com/html/12/12100/"
+    //        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+    //
+    //            if(errorId == 0)
+    //            {
+    //                print("调用成功")
+    //                print(baseparam.paramArray)
+    //            }
+    //            else
+    //            {
+    //
+    //            }
+    //            expect.fulfill()
+    //
+    //        }
+    //        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+    //        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
+    //        dicParam.setParam(baseparam)
+    //
+    //        BMControl.sharedInstance().excute(dicParam)
+    //
+    //        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+    //            print(error ?? "")
+    //        }
+    //
+    //    }
+    
+    
+//    func testBookDetail()
 //    {
-//        let expect = self.expectation(description: "testSearchKey")
+//        let chapter:BCTBookChapterModel = BCTBookChapterModel()
+//        chapter.url = "http://www.23us.com/html/12/12100/9864883.html"
+//        
+//        let expect = self.expectation(description: "testBookDetail")
 //        let baseparam:BMBaseParam = BMBaseParam()
-//        baseparam.paramString = "校花"
-//        baseparam.paramInt = 1
+//        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
+//        baseparam.paramObject = chapter
 //        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
-//
-//            if(errorId == 0)
-//            {
+//            if(errorId == 0){
 //                print("调用成功")
-//                print(baseparam.paramArray)
+//                print(baseparam.paramObject)
 //            }
-//            else
-//            {
-//                
+//            else{
 //            }
 //            expect.fulfill()
 //            
 //        }
 //        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-//        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
+//        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERDETAIL)
 //        dicParam.setParam(baseparam)
 //        BMControl.sharedInstance().excute(dicParam)
-//        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
-//            print(error ?? "")
-//        }
-//    }
-    
-//    func testBookList()
-//    {
-//
-//        let expect = self.expectation(description: "testBookList")
-//        let baseparam:BMBaseParam = BMBaseParam()
-//        baseparam.paramString = "http://www.23us.com/html/12/12100/"
-//        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
-//            
-//            if(errorId == 0)
-//            {
-//                print("调用成功")
-//                print(baseparam.paramArray)
-//            }
-//            else
-//            {
-//                
-//            }
-//            expect.fulfill()
-//            
-//        }
-//        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-//        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
-//        dicParam.setParam(baseparam)
-//        
-//        BMControl.sharedInstance().excute(dicParam)
-//        
-//        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
-//            print(error ?? "")
-//        }
-//        
 //    }
     
     
-    func testBookDetail()
+    func testBookCategory()
     {
         //BCTBookChapterModel *chapter = [_bookModel.aryChapterList objectAtIndex:_chapterIndex];
         
-        let chapter:BCTBookChapterModel = BCTBookChapterModel()
-        chapter.url = "http://www.23us.com/html/12/12100/9864883.html"
+//        let chapter:BCTBookChapterModel = BCTBookChapterModel()
+//        chapter.url = "http://www.23us.com/html/12/12100/9864883.html"
         
         let expect = self.expectation(description: "testBookDetail")
         let baseparam:BMBaseParam = BMBaseParam()
-        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
-        baseparam.paramObject = chapter
+//        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
+        baseparam.paramArray = BCTDataManager.shared.bookCategory[0].aryUrl as! NSMutableArray
+        baseparam.paramInt = 1
+//        baseparam.paramObject = chapter
         baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
             
             if(errorId == 0)
             {
                 print("调用成功")
-                print(baseparam.paramArray)
+                print(baseparam.paramObject)
             }
             else
             {
@@ -113,15 +141,10 @@ class BookMountainTests: XCTestCase {
             
         }
         let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERDETAIL)
+        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETCATEGORYBOOKSRESULT)
         dicParam.setParam(baseparam)
         
         BMControl.sharedInstance().excute(dicParam)
-        
-        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
-            print(error ?? "")
-            
-        }
         
     }
     

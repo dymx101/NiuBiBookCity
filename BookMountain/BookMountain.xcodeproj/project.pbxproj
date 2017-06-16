@@ -38,6 +38,8 @@
 		83B7457F1EDABCED0058E115 /* BMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456A1EDABCED0058E115 /* BMBaseTableViewController.m */; };
 		83B745801EDABCED0058E115 /* BMBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456C1EDABCED0058E115 /* BMBaseView.m */; };
 		83B745811EDABCED0058E115 /* BMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B7456E1EDABCED0058E115 /* BMBaseViewController.m */; };
+		83D42E051EF266B300D0FE25 /* BCTDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D42E041EF266B300D0FE25 /* BCTDataManager.swift */; };
+		83D42E071EF26F1900D0FE25 /* BCTBookCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D42E061EF26F1900D0FE25 /* BCTBookCategoryModel.swift */; };
 		8A5C7ED860C08F80C647C5EC /* Pods_BookMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97300C783186AF2CA0B7EB9C /* Pods_BookMountain.framework */; };
 		8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */; };
 		8C40AE441ED84D10000C8D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C40AE421ED84D10000C8D2B /* Main.storyboard */; };
@@ -120,6 +122,8 @@
 		83B7456C1EDABCED0058E115 /* BMBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseView.m; sourceTree = "<group>"; };
 		83B7456D1EDABCED0058E115 /* BMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseViewController.h; sourceTree = "<group>"; };
 		83B7456E1EDABCED0058E115 /* BMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseViewController.m; sourceTree = "<group>"; };
+		83D42E041EF266B300D0FE25 /* BCTDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTDataManager.swift; sourceTree = "<group>"; };
+		83D42E061EF26F1900D0FE25 /* BCTBookCategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTBookCategoryModel.swift; sourceTree = "<group>"; };
 		8C40AE3B1ED84D10000C8D2B /* BookMountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C40AE3E1ED84D10000C8D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C40AE431ED84D10000C8D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 				83B744D91EDAB2300058E115 /* BCTBookModel.swift */,
 				83B744DB1EDAB3650058E115 /* BCTBookChapterModel.swift */,
 				83017A601EDD650700C06496 /* BaseModel.swift */,
+				83D42E041EF266B300D0FE25 /* BCTDataManager.swift */,
+				83D42E061EF26F1900D0FE25 /* BCTBookCategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D42E051EF266B300D0FE25 /* BCTDataManager.swift in Sources */,
 				83B745741EDABCED0058E115 /* BMActionManager.m in Sources */,
 				83B744DC1EDAB3650058E115 /* BCTBookChapterModel.swift in Sources */,
 				8C40AE621ED85469000C8D2B /* BookParsingPatterns.swift in Sources */,
@@ -592,6 +599,7 @@
 				83B7457D1EDABCED0058E115 /* BMBaseTabBarController.m in Sources */,
 				83B7457C1EDABCED0058E115 /* BMUIApplication.m in Sources */,
 				83B7457E1EDABCED0058E115 /* BMBaseTableViewCell.m in Sources */,
+				83D42E071EF26F1900D0FE25 /* BCTBookCategoryModel.swift in Sources */,
 				8C40AE601ED84E55000C8D2B /* BookMountainSource.swift in Sources */,
 				83B7457A1EDABCED0058E115 /* ServiceInspector_Indicator.m in Sources */,
 				83B745771EDABCED0058E115 /* BMBaseAction.m in Sources */,

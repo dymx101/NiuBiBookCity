@@ -12,7 +12,9 @@ class BCTBookCityConfig: NSObject {
     static let shared = BCTBookCityConfig()
     
     var engineDics:[NSDictionary] = []
-    var enginesDic:[NSDictionary] = []
+    var bookCategory:[NSDictionary] = []
+    
+//    var enginesDic:[NSDictionary] = []
     
     override init() {
         super.init()
@@ -23,20 +25,15 @@ class BCTBookCityConfig: NSObject {
     {
         if let plistPath = Bundle.main.path(forResource: "BookMountainConfiguration", ofType: "plist") {
             let dicConfig = NSDictionary(contentsOfFile: plistPath)
-            print(loadConfig ?? "get config error")
+//            print(loadConfig ?? "get config error")
             
             engineDics = dicConfig?["sources"] as! [NSDictionary];
-//            for engineDic in engineDics
-//            {
-//                let engine = BookMountainEngine(dict: engineDic)
-//                
-//            }
         }
         
         
         if let plistPath = Bundle.main.path(forResource: "bookCityConfig", ofType: "plist") {
             let dicConfig = NSDictionary(contentsOfFile: plistPath)
-            
+            bookCategory = dicConfig?["BookCategory"] as! [NSDictionary];
             
         }
         

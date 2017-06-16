@@ -30,20 +30,13 @@ class BookParsingPatterns:BaseModel {
     /// 用于解析出章节内容
     var chapterContent: String?
     
+    var categoryList : String?
     
-//    func loadConfig(dic:NSDictionary)
-//    {
-////        self.title = self.value(forKey: "1") as! String
-////        #keyPath(BookParsingPatterns.title)
-////        #keyPath(self.title)
-//        let structMirror = Mirror(reflecting: self).children
-//        let numChildren = structMirror.count
-//        print("child count:\(numChildren)")
-//        for case let (key,value) in structMirror {
-//            self.setValue("123", forKey: key!)
-////            print("name: \(key) value: \(value)")
-//        }
-//        
-//        
-//    }
+    var categoryListTitle : String?
+    var categoryListbookLink : String?
+    var categoryListAuthor : String?
+    var categoryListImageSrc : String?
+    var categoryListMemo : String?
+    
+    var categoryListImageFunction : String?
 }

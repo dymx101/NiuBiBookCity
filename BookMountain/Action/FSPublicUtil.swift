@@ -142,7 +142,8 @@ extension String {
                 // 生成Key/Value
                 let pairComponents = keyValuePair.components(separatedBy: "=")
                 let key = pairComponents.first?.removingPercentEncoding
-                let value = pairComponents.last?.removingPercentEncoding
+//                let value = pairComponents.last?.removingPercentEncoding
+                let value = pairComponents.last
                 // 判断参数是否是数组
                 if let key = key, let value = value {
                     // 已存在的值，生成数组

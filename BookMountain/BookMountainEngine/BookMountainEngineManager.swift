@@ -15,9 +15,11 @@ class BookMountainEngineManager: NSObject {
     
     public func getSearchBookResult(baseParam: BMBaseParam) {
         
+        
         for engine in engineList
         {
             engine.getSearchBookResult(baseParam: baseParam)
+            break
         }
         
     }
@@ -60,9 +62,22 @@ class BookMountainEngineManager: NSObject {
                 }
 
             }
+        }
+        baseParam.withresultobjectblock = {(errorId,message,id)->Void in
             
+            if(errorId == 0)
+            {
+                print("调用成功")
+                print(baseParam.paramObject)
+            }
+            else
+            {
+                
+            }
+            baseParam.withresult(errorId)
             
         }
+
     }
     
     

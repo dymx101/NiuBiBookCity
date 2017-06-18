@@ -19,6 +19,7 @@ class BookMountainSource:BaseModel {
     var searhURL: String?
     var shouldPretendAsComputer: Bool?
     var parsingPatterns: BookParsingPatterns?
+    var userParamDic:Bool?
     
 
     
@@ -26,6 +27,10 @@ class BookMountainSource:BaseModel {
         if(key == "shouldPretendAsComputer")
         {
             self.shouldPretendAsComputer = value as? Bool
+        }
+        else if(key == "userParamDic")
+        {
+            self.userParamDic = value as? Bool
         }
 
     }

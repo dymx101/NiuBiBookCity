@@ -24,6 +24,12 @@ typedef void (^BaseBlock)(int,NSString*);
  *  @param id
  */
 typedef void (^WithResultObjectBlock)(int,NSString*,id);
+/*!
+ *  定义参数类的block
+ *
+ *  @param int       错误代码 如果错误代码为 0 就是正确的
+ */
+typedef void (^WithResult)(int);
 
 /*!
  @class
@@ -87,6 +93,8 @@ typedef void (^WithResultObjectBlock)(int,NSString*,id);
  *  block 参数
  */
 @property (nonatomic,strong) WithResultObjectBlock withresultobjectblock;
+
+@property (nonatomic,strong) WithResult withresult;
 
 
 - (void)increasePendingCallbacks;

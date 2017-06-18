@@ -8,6 +8,65 @@
 	<array>
 		<dict>
 			<key>baseURL</key>
+			<string>http://www.7788xs.net/</string>
+			<key>searhURL</key>
+			<string>http://www.7788xs.net/modules/article/search.php?searchkey=%@&amp;t=1&amp;page=%@</string>
+			<key>requestEncoding</key>
+			<string>GB_18030_2000</string>
+			<key>shouldPretendAsComputer</key>
+			<false/>
+			<key>userParamDic</key>
+			<false/>
+			<key>parsingPatterns</key>
+			<dict>
+				<key>list</key>
+				<string>&lt;div class=&quot;ml212&quot;&gt;([\s\S]*?)&lt;/div&gt;</string>
+				<key>title</key>
+				<string>&lt;a cpos=&quot;title&quot; href=&quot;[^\&quot;]*\&quot; title=&quot;([^\&quot;]*)&quot;</string>
+				<key>bookLink</key>
+				<string>&lt;a cpos=&quot;img&quot; href=&quot;([^\&quot;]*)&quot;</string>
+				<key>author</key>
+				<string>&lt;a cpos=&quot;author&quot;[^&gt;]*&gt;([^&lt;]*)&lt;/a&gt;</string>
+				<key>imageSrc</key>
+				<string>&lt;img src=&quot;([^\&quot;]*)&quot;</string>
+				<key>memo</key>
+				<string>&lt;p class=&quot;result-game-item-desc&quot;&gt;[^.]*..([\s\S]*?)&lt;/p&gt;</string>
+				<key>chapterContainter</key>
+				<string>44</string>
+				<key>chapterItem</key>
+				<string>&lt;td class=&quot;L&quot;&gt;&lt;a href=&quot;([^\&quot;]*)&quot;&gt;([^&lt;]*)&lt;/a&gt;</string>
+				<key>chapterDetail</key>
+				<string>&lt;dd id=&quot;contents&quot;&gt;([\s\S]*?)&lt;/dd&gt;</string>
+				<key>chapterContent</key>
+				<string>77</string>
+				<key>categoryList</key>
+				<string>&lt;tr bgcolor=&quot;#FFFFFF&quot;&gt;([\s\S]*?)&lt;/tr&gt;</string>
+				<key>categoryListTitle</key>
+				<string>&lt;td class=&quot;L&quot;&gt;[\s\S]*?&lt;/a&gt;&lt;a [^&gt;]*&gt;(.*?)&lt;/a&gt;</string>
+				<key>categoryListbookLink</key>
+				<string>&lt;a href=&quot;([^\&quot;]*)&quot; target=&quot;_blank&quot;&gt;</string>
+				<key>categoryListAuthor</key>
+				<string>&lt;td class=&quot;C&quot;&gt;(.*?)&lt;/td&gt;[\s\S]*?&lt;td class=&quot;R&quot;&gt;</string>
+				<key>categoryListImageSrc</key>
+				<string></string>
+				<key>categoryListMemo</key>
+				<string></string>
+				<key>categoryListImageFunction</key>
+				<string>function getImageUrl(strBooklink)
+{
+
+var strs= new Array(); 
+strs= strBooklink.split(&quot;/&quot;);  
+var count = strs.length;
+var strRet = &quot;http://www.23us.com/files/article/image/&quot;+strs[count-3]+&quot;/&quot;+strs[count-2]+&quot;/&quot;+strs[count-2]+&quot;s.jpg&quot;;
+return strRet;
+}</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>userParamDic</key>
+			<true/>
+			<key>baseURL</key>
 			<string>http://www.23us.com/</string>
 			<key>searhURL</key>
 			<string>http://zhannei.baidu.com/cse/search?q=%@&amp;s=8253726671271885340&amp;nsid=0&amp;p=%@</string>

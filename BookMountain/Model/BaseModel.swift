@@ -27,6 +27,30 @@ class BaseModel: NSObject {
         print("child count:\(numChildren)")
         for case let (k, _) in structMirror {
 
+            var isHasK = false
+            
+            
+//            do
+//            {
+////                isHasK = try dic.allKeys.contains(where: <#T##(Any) throws -> Bool#>)
+////                isHasK = try dic.allKeys.contains(where: (k) as! (Any) throws -> Bool)
+//                
+//                
+//                isHasK = try dic.allKeys.contains {$0 as? String == k}
+//                
+//            }
+//            catch{
+//                
+//            }
+            
+
+            isHasK =  dic.allKeys.contains {$0 as? String == k}
+                
+
+            if(isHasK == false)
+            {
+                continue
+            }
             
             if(dic[k!] is NSDictionary)
             {

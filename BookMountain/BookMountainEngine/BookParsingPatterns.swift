@@ -13,13 +13,15 @@ class BookParsingPatterns:BaseModel {
     
     /// 用于解析出图书列表
     var list: String?
-    
+    var responseListEncoding: String?
     /// 以下pattern用于解析出bookModel的信息
     var title: String?
     var bookLink: String?
+    var bookLinkFunction : String?
     var author: String?
     var imageSrc: String?
     var memo: String?
+    
     
     /// 章节容器pattern, 某些网站会在章节列表外面包一层
     var chapterContainter: String?

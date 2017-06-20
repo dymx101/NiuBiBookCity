@@ -31,6 +31,7 @@ class BookMountainEngineManager: NSObject {
             if(baseParam.paramString.contains((engine.webSources?.baseURL)!))
             {
                 engine.getBookChapterList(baseParam: baseParam)
+                 break
             }
             
         }

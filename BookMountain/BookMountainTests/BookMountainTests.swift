@@ -25,41 +25,12 @@ class BookMountainTests: XCTestCase {
     
     
     
-        func testSearchKey()
-        {
-            let expect = self.expectation(description: "testSearchKey")
-            let baseparam:BMBaseParam = BMBaseParam()
-            baseparam.paramString = "校花"
-            baseparam.paramInt = 1
-            baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
-    
-                if(errorId == 0)
-                {
-                    print("调用成功")
-                    print(baseparam.paramArray)
-                }
-                else
-                {
-    
-                }
-                expect.fulfill()
-    
-            }
-            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
-            dicParam.setParam(baseparam)
-            BMControl.sharedInstance().excute(dicParam)
-            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
-                print(error ?? "")
-            }
-        }
-    
-//        func testBookChapterList()
+//        func testSearchKey()
 //        {
-//    
-//            let expect = self.expectation(description: "testBookList")
+//            let expect = self.expectation(description: "testSearchKey")
 //            let baseparam:BMBaseParam = BMBaseParam()
-//            baseparam.paramString = "http://www.23us.com/html/12/12100/"
+//            baseparam.paramString = "校花"
+//            baseparam.paramInt = 1
 //            baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
 //    
 //                if(errorId == 0)
@@ -75,16 +46,43 @@ class BookMountainTests: XCTestCase {
 //    
 //            }
 //            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-//            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
+//            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
 //            dicParam.setParam(baseparam)
-//    
 //            BMControl.sharedInstance().excute(dicParam)
-//    
 //            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
 //                print(error ?? "")
 //            }
-//    
 //        }
+    
+        func testBookChapterList()
+        {
+    
+            let expect = self.expectation(description: "testBookList")
+            let baseparam:BMBaseParam = BMBaseParam()
+            baseparam.paramString = "http://www.7788xs.org/read/48937.html"
+            baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+    
+                if(errorId == 0)
+                {
+                    print("调用成功")
+                    print(baseparam.paramArray)
+                }
+                else
+                {
+    
+                }
+                expect.fulfill()
+    
+            }
+            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
+            dicParam.setParam(baseparam)
+    
+            BMControl.sharedInstance().excute(dicParam)
+    
+
+    
+        }
     
     
 //    func testBookDetail()

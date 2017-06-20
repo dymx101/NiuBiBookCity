@@ -8,7 +8,7 @@
 	<array>
 		<dict>
 			<key>baseURL</key>
-			<string>http://www.7788xs.net/</string>
+			<string>http://www.7788xs.org/</string>
 			<key>searhURL</key>
 			<string>http://www.7788xs.net/modules/article/search.php?searchkey=%@&amp;t=1&amp;page=%@</string>
 			<key>requestEncoding</key>
@@ -20,27 +20,36 @@
 			<key>parsingPatterns</key>
 			<dict>
 				<key>list</key>
-				<string>&lt;div class=&quot;ml212&quot;&gt;([\s\S]*?)&lt;/div&gt;</string>
+				<string>&lt;div class=&quot;ml211&quot;&gt;([\s\S]*?&lt;div class=&quot;ml212&quot;&gt;[\s\S]*?)&lt;/div&gt;</string>
+				<key>responseListEncoding</key>
+				<string>0x80000632</string>
 				<key>title</key>
-				<string>&lt;a cpos=&quot;title&quot; href=&quot;[^\&quot;]*\&quot; title=&quot;([^\&quot;]*)&quot;</string>
+				<string>&lt;img alt=&quot;([^\&quot;]*)&quot; src=&quot;[^\&quot;]*&quot; /&gt;</string>
 				<key>bookLink</key>
-				<string>&lt;a cpos=&quot;img&quot; href=&quot;([^\&quot;]*)&quot;</string>
+				<string>&lt;a href=&quot;([^\&quot;]*)&quot;&gt;&lt;img alt=&quot;[^\&quot;]*&quot; src=&quot;[^\&quot;]*&quot; /&gt;</string>
+				<key>bookLinkFunction</key>
+				<string>function getBookLink(strSource)
+{
+    var strRet = &quot;&quot;;
+    strRet = strSource.replace(&quot;book&quot;,&quot;read&quot;);
+    return strRet;
+}</string>
 				<key>author</key>
-				<string>&lt;a cpos=&quot;author&quot;[^&gt;]*&gt;([^&lt;]*)&lt;/a&gt;</string>
+				<string>&lt;span&gt;作者：&lt;/span&gt;&lt;a href=&quot;[^\&quot;]*&quot;&gt;([^&lt;]*)&lt;/a&gt;</string>
 				<key>imageSrc</key>
-				<string>&lt;img src=&quot;([^\&quot;]*)&quot;</string>
+				<string>&lt;img alt=&quot;[^\&quot;]*&quot; src=&quot;([^\&quot;]*)&quot;</string>
 				<key>memo</key>
-				<string>&lt;p class=&quot;result-game-item-desc&quot;&gt;[^.]*..([\s\S]*?)&lt;/p&gt;</string>
+				<string>&lt;dd&gt;(.*?)&lt;a</string>
 				<key>chapterContainter</key>
-				<string>44</string>
+				<string>&lt;dd&gt;([\s\S]*?)&lt;/dd&gt;</string>
 				<key>chapterItem</key>
-				<string>&lt;td class=&quot;L&quot;&gt;&lt;a href=&quot;([^\&quot;]*)&quot;&gt;([^&lt;]*)&lt;/a&gt;</string>
+				<string>&lt;dd&gt;&lt;a href=&quot;([^\&quot;]*)&quot;&gt;([\s\S]*?)&lt;/a&gt;&lt;/dd&gt;</string>
 				<key>chapterDetail</key>
-				<string>&lt;dd id=&quot;contents&quot;&gt;([\s\S]*?)&lt;/dd&gt;</string>
+				<string>&lt;div id=&quot;content&quot;&gt;([\s\S]*?)&lt;/div&gt;</string>
 				<key>chapterContent</key>
 				<string>77</string>
 				<key>categoryList</key>
-				<string>&lt;tr bgcolor=&quot;#FFFFFF&quot;&gt;([\s\S]*?)&lt;/tr&gt;</string>
+				<string>&lt;dd&gt;([\s\S]*?)&lt;/dd&gt;</string>
 				<key>categoryListTitle</key>
 				<string>&lt;td class=&quot;L&quot;&gt;[\s\S]*?&lt;/a&gt;&lt;a [^&gt;]*&gt;(.*?)&lt;/a&gt;</string>
 				<key>categoryListbookLink</key>

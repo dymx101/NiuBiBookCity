@@ -10,7 +10,7 @@
 			<key>baseURL</key>
 			<string>http://www.7788xs.org/</string>
 			<key>searhURL</key>
-			<string>http://www.7788xs.net/modules/article/search.php?searchkey=%@&amp;t=1&amp;page=%@</string>
+			<string>http://www.7788xs.org/modules/article/search.php?searchkey=%@&amp;t=1&amp;page=%@</string>
 			<key>requestEncoding</key>
 			<string>GB_18030_2000</string>
 			<key>shouldPretendAsComputer</key>
@@ -21,7 +21,13 @@
 			<dict>
 				<key>list</key>
 				<string>&lt;div class=&quot;ml211&quot;&gt;([\s\S]*?&lt;div class=&quot;ml212&quot;&gt;[\s\S]*?)&lt;/div&gt;</string>
+				<key>firstPageIsZero</key>
+				<false/>
 				<key>responseListEncoding</key>
+				<string>0x80000632</string>
+				<key>responseChapterListEncoding</key>
+				<string>0x80000632</string>
+				<key>responseChapterDetailEncoding</key>
 				<string>0x80000632</string>
 				<key>title</key>
 				<string>&lt;img alt=&quot;([^\&quot;]*)&quot; src=&quot;[^\&quot;]*&quot; /&gt;</string>
@@ -48,28 +54,29 @@
 				<string>&lt;div id=&quot;content&quot;&gt;([\s\S]*?)&lt;/div&gt;</string>
 				<key>chapterContent</key>
 				<string>77</string>
+				<key>responseCategoryBooksResult</key>
+				<string>0x80000632</string>
 				<key>categoryList</key>
-				<string>&lt;dd&gt;([\s\S]*?)&lt;/dd&gt;</string>
+				<string>&lt;div class=&quot;ml211&quot;&gt;([\s\S]*?&lt;div class=&quot;ml212&quot;&gt;[\s\S]*?)&lt;/div&gt;</string>
 				<key>categoryListTitle</key>
-				<string>&lt;td class=&quot;L&quot;&gt;[\s\S]*?&lt;/a&gt;&lt;a [^&gt;]*&gt;(.*?)&lt;/a&gt;</string>
+				<string>&lt;img alt=&quot;([^\&quot;]*)&quot; src=&quot;[^\&quot;]*&quot; /&gt;</string>
 				<key>categoryListbookLink</key>
-				<string>&lt;a href=&quot;([^\&quot;]*)&quot; target=&quot;_blank&quot;&gt;</string>
+				<string>&lt;a href=&quot;([^\&quot;]*)&quot;&gt;&lt;img alt=&quot;[^\&quot;]*&quot; src=&quot;[^\&quot;]*&quot; /&gt;</string>
 				<key>categoryListAuthor</key>
-				<string>&lt;td class=&quot;C&quot;&gt;(.*?)&lt;/td&gt;[\s\S]*?&lt;td class=&quot;R&quot;&gt;</string>
+				<string>&lt;span&gt;作者：&lt;/span&gt;&lt;a href=&quot;[^\&quot;]*&quot;&gt;([^&lt;]*)&lt;/a&gt;</string>
 				<key>categoryListImageSrc</key>
-				<string></string>
+				<string>&lt;img alt=&quot;[^\&quot;]*&quot; src=&quot;([^\&quot;]*)&quot;</string>
 				<key>categoryListMemo</key>
-				<string></string>
-				<key>categoryListImageFunction</key>
-				<string>function getImageUrl(strBooklink)
+				<string>&lt;dd&gt;(.*?)&lt;a</string>
+				<key>categorybookLinkFunction</key>
+				<string>function getBookLink(strSource)
 {
-
-var strs= new Array(); 
-strs= strBooklink.split(&quot;/&quot;);  
-var count = strs.length;
-var strRet = &quot;http://www.23us.com/files/article/image/&quot;+strs[count-3]+&quot;/&quot;+strs[count-2]+&quot;/&quot;+strs[count-2]+&quot;s.jpg&quot;;
-return strRet;
+    var strRet = &quot;&quot;;
+    strRet = strSource.replace(&quot;book&quot;,&quot;read&quot;);
+    return strRet;
 }</string>
+				<key>categoryListImageFunction</key>
+				<string></string>
 			</dict>
 		</dict>
 		<dict>
@@ -85,6 +92,21 @@ return strRet;
 			<false/>
 			<key>parsingPatterns</key>
 			<dict>
+				<key>bookLinkFunction</key>
+				<string>
+{
+    var strRet = &quot;&quot;;
+    strRet = strSource.replace(&quot;book&quot;,&quot;read&quot;);
+    return strRet;
+}</string>
+				<key>firstPageIsZero</key>
+				<true/>
+				<key>responseChapterDetailEncoding</key>
+				<string>0x80000632</string>
+				<key>responseChapterListEncoding</key>
+				<string>0x80000632</string>
+				<key>responseListEncoding</key>
+				<string>.utf</string>
 				<key>list</key>
 				<string>&lt;div class=&quot;result-item result-game-item&quot;&gt;([\s\S]*?&lt;/p&gt;\s*?)&lt;/div&gt;</string>
 				<key>title</key>

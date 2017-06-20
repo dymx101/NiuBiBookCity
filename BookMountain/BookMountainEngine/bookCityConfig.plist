@@ -26,7 +26,7 @@
 			<key>urlAry</key>
 			<array>
 				<string>http://www.sikushu.com/catalog/1-%d.html</string>
-				<string>http://www.7788xs.net/sort1/%d.html</string>
+				<string>http://www.7788xs.org/sort1/%d.html</string>
 				<string>http://www.xiaoshuo2016.com/all/2_lastupdate_0_0_0_0_0_0_%d.html</string>
 			</array>
 			<key>categoryname</key>
@@ -41,7 +41,7 @@
 			<string>[123,82,135,1]</string>
 			<key>urlAry</key>
 			<array>
-				<string>http://www.7788xs.net/sort3/%d.html</string>
+				<string>http://www.7788xs.org/sort3/%d.html</string>
 				<string>http://www.sikushu.com/catalog/3-%d.html</string>
 				<string>http://www.txt99.cc/txt/list4-%d.html</string>
 				<string>http://www.xiaoshuo2016.com/all/5_lastupdate_0_0_0_0_0_0_%d.html</string>

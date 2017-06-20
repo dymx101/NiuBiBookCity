@@ -54,45 +54,49 @@ class BookMountainTests: XCTestCase {
 //            }
 //        }
     
-        func testBookChapterList()
-        {
-    
-            let expect = self.expectation(description: "testBookList")
-            let baseparam:BMBaseParam = BMBaseParam()
-            baseparam.paramString = "http://www.7788xs.org/read/48937.html"
-            baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
-    
-                if(errorId == 0)
-                {
-                    print("调用成功")
-                    print(baseparam.paramArray)
-                }
-                else
-                {
-    
-                }
-                expect.fulfill()
-    
-            }
-            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
-            dicParam.setParam(baseparam)
-    
-            BMControl.sharedInstance().excute(dicParam)
-    
-
-    
-        }
+//        func testBookChapterList()
+//        {
+//    
+//            let expect = self.expectation(description: "testBookChapterList")
+//            let baseparam:BMBaseParam = BMBaseParam()
+//            baseparam.paramString = "http://www.7788xs.org/read/48937.html"
+//            baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+//    
+//                if(errorId == 0)
+//                {
+//                    print("调用成功")
+//                    print(baseparam.paramArray)
+//                }
+//                else
+//                {
+//    
+//                }
+//                expect.fulfill()
+//    
+//            }
+//            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+//            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
+//            dicParam.setParam(baseparam)
+//    
+//            BMControl.sharedInstance().excute(dicParam)
+//    
+//            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+//                            print(error ?? "")
+//                        }
+//    
+//        }
     
     
 //    func testBookDetail()
 //    {
-//        let chapter:BCTBookChapterModel = BCTBookChapterModel()
-//        chapter.url = "http://www.23us.com/html/12/12100/9864883.html"
-//        
 //        let expect = self.expectation(description: "testBookDetail")
+//
+//        let chapter:BCTBookChapterModel = BCTBookChapterModel()
+//        chapter.url = "http://www.7788xs.org/read/48937/12066621.html"
+////        http://www.23us.com/html/12/12100/9864883.html
+////        http://www.7788xs.org/read/48937/12066621.html
 //        let baseparam:BMBaseParam = BMBaseParam()
-//        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
+//        baseparam.paramString = "http://www.7788xs.org/read/48937/12066621.html"
 //        baseparam.paramObject = chapter
 //        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
 //            if(errorId == 0){
@@ -108,39 +112,49 @@ class BookMountainTests: XCTestCase {
 //        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERDETAIL)
 //        dicParam.setParam(baseparam)
 //        BMControl.sharedInstance().excute(dicParam)
+//        
+//                    self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+//                                    print(error ?? "")
+//                                }
 //    }
     
     
-//    func testBookCategory()
-//    {
-//        let baseparam:BMBaseParam = BMBaseParam()
-////        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
-//        baseparam.paramArray = BCTDataManager.shared.bookCategory[0].aryUrl as! NSMutableArray
-//        baseparam.paramInt = 1
-//
-//        
-//        baseparam.withresult = {(errorId)->Void in
-//        
-//                        if(errorId == 0)
-//                        {
-//                            print("调用成功")
-//                            
-//                        }
-//                        else
-//                        {
-//                            
-//                        }
-//        
-//        
-//        }
-//        
-//        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-//        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETCATEGORYBOOKSRESULT)
-//        dicParam.setParam(baseparam)
-//        
-//        BMControl.sharedInstance().excute(dicParam)
-//        
-//    }
+    func testBookCategory()
+    {
+        let expect = self.expectation(description: "testBookCategory")
+        let baseparam:BMBaseParam = BMBaseParam()
+//        baseparam.paramString = "http://www.23us.com/html/12/12100/9864883.html"
+        baseparam.paramArray = BCTDataManager.shared.bookCategory[1].aryUrl as! NSMutableArray
+        baseparam.paramInt = 1
+
+        
+        baseparam.withresult = {(errorId)->Void in
+        
+                        if(errorId == 0)
+                        {
+                            print("调用成功")
+                            
+                        }
+                        else
+                        {
+                            
+                        }
+        
+        expect.fulfill()
+        }
+        
+        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETCATEGORYBOOKSRESULT)
+        dicParam.setParam(baseparam)
+        
+        BMControl.sharedInstance().excute(dicParam)
+        
+        
+                            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+                                            print(error ?? "")
+                                        }
+        
+    }
     
     
     override func tearDown() {
@@ -148,16 +162,5 @@ class BookMountainTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
 }

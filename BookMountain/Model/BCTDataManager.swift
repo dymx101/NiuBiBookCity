@@ -14,6 +14,29 @@ class BCTDataManager: NSObject {
     var bookCategory:[BCTBookCategoryModel] = []
 //    var dicBooksCategoryAry:[String:Any] = [:]
     
+    var bookList : [BCTBookModel] = []
+    var categoryBookList : [BCTBookModel] = []
+    var historyKeyWord : String =  ""
+    
+    var pageIndex = 0
+    var categoryPageIndex = 0
+    
+    func resetSearch(strKey:String) {
+        if(strKey != historyKeyWord)
+        {
+            pageIndex = 0
+            bookList = []
+        }
+
+    }
+    func resetCategory(index:Int) {
+        if(index == 0)
+        {
+            categoryPageIndex = 0
+            categoryBookList = []
+        }
+        
+    }
     
     override init() {
         super.init()

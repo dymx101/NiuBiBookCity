@@ -25,6 +25,7 @@
 			<string>[40,98,90,1]</string>
 			<key>urlAry</key>
 			<array>
+				<string>http://www.23us.com/class/1_%d.html</string>
 				<string>http://www.sikushu.com/catalog/1-%d.html</string>
 				<string>http://www.7788xs.org/sort1/%d.html</string>
 				<string>http://www.xiaoshuo2016.com/all/2_lastupdate_0_0_0_0_0_0_%d.html</string>

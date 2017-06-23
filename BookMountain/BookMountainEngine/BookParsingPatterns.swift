@@ -11,40 +11,32 @@ import Foundation
 /// BookParsingPatterns 用于配置图书解析时的正则表达式
 class BookParsingPatterns:BaseModel {
     
-    /// 用于解析出图书列表
-    var list: String = ""
-    var responseListEncoding: String = ""
-    /// 以下pattern用于解析出bookModel的信息
-    var title: String = ""
-    var bookLink: String = ""
-    var bookLinkFunction : String = ""
-    var author: String = ""
-    var imageSrc: String = ""
-    var memo: String = ""
-    var responseChapterListEncoding:String = ""
-    var responseChapterDetailEncoding:String = ""
-    var firstPageIsZero:Bool = false
-    
-    
-    /// 章节容器pattern, 某些网站会在章节列表外面包一层
-    var chapterContainter: String = ""
-    /// 用于从章节列表抓出一个章节
-    var chapterItem: String = ""
-    /// 用于从章节string中解析出title和url
-    var chapterDetail: String = ""
-    /// 用于解析出章节内容
-    var chapterContent: String = ""
-    
-    var categoryList : String = ""
-    
-    var categoryListTitle : String = ""
-    var categoryListbookLink : String = ""
-    var categoryListAuthor : String = ""
-    var categoryListImageSrc : String = ""
-    var categoryListMemo : String = ""
-    var categorybookLinkFunction : String = ""
-    var categoryListImageFunction : String = ""
-    var responseCategoryBooksResult:String = ""
+    var getSearchBookResult:GetBookListPatterns? = nil
+    var getBookChapterList:BookParsingItem? = nil
+    var getBookChapterDetail:BookParsingItem? = nil
+    var getCategoryBooksResult:GetBookListPatterns? = nil
+
+
+    override  func loadFromDic(key:String,dic:NSDictionary)
+    {
+        if(key == "getSearchBookResult")
+        {
+            self.getSearchBookResult = GetBookListPatterns(dict: dic)
+        }
+        else if(key == "getBookChapterList")
+        {
+            self.getBookChapterList = BookParsingItem(dict: dic)
+        }
+        else if(key == "getBookChapterDetail")
+        {
+            self.getBookChapterDetail = BookParsingItem(dict: dic)
+        }
+        else if(key == "getCategoryBooksResult")
+        {
+            self.getCategoryBooksResult = GetBookListPatterns(dict: dic)
+        }
+        
+    }
     
     
 }

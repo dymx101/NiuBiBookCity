@@ -15,11 +15,11 @@ class BookMountainSource:BaseModel {
 //    static public let dictA = ["baseURL":"baseURL","shouldPretendAsComputer":false] as [String : Any]
     
     var baseURL: String?
-    var requestEncoding: String?
+//    var requestEncoding: String?
     var searhURL: String?
     var shouldPretendAsComputer: Bool?
     var parsingPatterns: BookParsingPatterns?
-    var userParamDic:Bool?
+//    var userParamDic:Bool?
     
 
     
@@ -28,11 +28,6 @@ class BookMountainSource:BaseModel {
         {
             self.shouldPretendAsComputer = value as? Bool
         }
-        else if(key == "userParamDic")
-        {
-            self.userParamDic = value as? Bool
-        }
-
     }
     
     override  func loadFromDic(key:String,dic:NSDictionary)

@@ -15,11 +15,29 @@ class BookMountainEngineManager: NSObject {
     
     public func getSearchBookResult(baseParam: BMBaseParam) {
         
-        
+        BCTDataManager.shared.resetSearch(strKey: baseParam.paramString)
         for engine in engineList
         {
             engine.getSearchBookResult(baseParam: baseParam)
-            break
+//            break
+        }
+        baseParam.withresultobjectblock = {(errorId,message,id)->Void in
+            
+            if(errorId == 0)
+            {
+                print("调用成功")
+                print(baseParam.paramObject)
+//                BCTDataManager.shared.bookList.
+                BCTDataManager.shared.bookList.append(contentsOf: baseParam.paramArray as! [BCTBookModel])
+            }
+            else
+            {
+                
+            }
+            baseParam.withresult(errorId)
+            
+            
+            
         }
         
     }
@@ -45,6 +63,7 @@ class BookMountainEngineManager: NSObject {
             if(baseParam.paramString.contains((engine.webSources?.baseURL)!))
             {
                 engine.getBookChapterDetail(baseParam: baseParam)
+                break
             }
             
         }
@@ -52,6 +71,7 @@ class BookMountainEngineManager: NSObject {
     
     public func getCategoryBooksResult(baseParam:BMBaseParam)
     {
+        BCTDataManager.shared.resetCategory(index: baseParam.paramInt)
         for engine in engineList
         {
             for strUrl in baseParam.paramArray
@@ -70,6 +90,7 @@ class BookMountainEngineManager: NSObject {
             {
                 print("调用成功")
                 print(baseParam.paramObject)
+                BCTDataManager.shared.categoryBookList.append(contentsOf: baseParam.paramArray as! [BCTBookModel])
             }
             else
             {

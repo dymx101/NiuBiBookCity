@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		83017A5F1EDD61DE00C06496 /* NSObject+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */; };
 		83017A611EDD650700C06496 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83017A601EDD650700C06496 /* BaseModel.swift */; };
+		831653BA1EFA1247003709EE /* BookParsingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831653B91EFA1247003709EE /* BookParsingItem.swift */; };
 		832EE3C31EE152800033B217 /* BCTBookAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */; };
 		836137031EE4F43E00E5F066 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836137021EE4F43E00E5F066 /* ViewController.swift */; };
+		836ABC681EFA5ADC00C00545 /* GetBookListPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */; };
 		836D8DB21EEBEA1300E849F0 /* bookCityConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 836D8DB11EEBEA1300E849F0 /* bookCityConfig.plist */; };
 		836D8DB41EEBEE1900E849F0 /* BCTBookCityConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */; };
 		83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */; };
@@ -66,9 +68,11 @@
 		65B87CA6C8D1B7B445BF6DC4 /* Pods-BookMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookMountain/Pods-BookMountain.debug.xcconfig"; sourceTree = "<group>"; };
 		83017A5E1EDD61DE00C06496 /* NSObject+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Util.swift"; sourceTree = "<group>"; };
 		83017A601EDD650700C06496 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		831653B91EFA1247003709EE /* BookParsingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParsingItem.swift; sourceTree = "<group>"; };
 		832EE3C11EE152800033B217 /* BCTBookAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTBookAnalyzer.h; sourceTree = "<group>"; };
 		832EE3C21EE152800033B217 /* BCTBookAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTBookAnalyzer.m; sourceTree = "<group>"; };
 		836137021EE4F43E00E5F066 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookListPatterns.swift; sourceTree = "<group>"; };
 		836D8DB11EEBEA1300E849F0 /* bookCityConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bookCityConfig.plist; sourceTree = "<group>"; };
 		836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTBookCityConfig.swift; sourceTree = "<group>"; };
 		83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPublicUtil.swift; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				8C40AE651ED865A1000C8D2B /* BookMountainEngine.swift */,
 				83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */,
 				836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */,
+				831653B91EFA1247003709EE /* BookParsingItem.swift */,
+				836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */,
 			);
 			path = BookMountainEngine;
 			sourceTree = "<group>";
@@ -619,8 +625,10 @@
 				83B745801EDABCED0058E115 /* BMBaseView.m in Sources */,
 				8C40AE661ED865A1000C8D2B /* BookMountainEngine.swift in Sources */,
 				8C40AE3F1ED84D10000C8D2B /* AppDelegate.swift in Sources */,
+				836ABC681EFA5ADC00C00545 /* GetBookListPatterns.swift in Sources */,
 				83B745701EDABCED0058E115 /* NSObject+BMNotification.m in Sources */,
 				83017A611EDD650700C06496 /* BaseModel.swift in Sources */,
+				831653BA1EFA1247003709EE /* BookParsingItem.swift in Sources */,
 				83B7457B1EDABCED0058E115 /* ServiceInspector_WindowHook.m in Sources */,
 				83B745731EDABCED0058E115 /* BMBaseParam.m in Sources */,
 				83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */,

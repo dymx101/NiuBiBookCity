@@ -36,7 +36,7 @@ class BookMountainEngine:NSObject {
     func getSearchBookResult(baseParam:BMBaseParam)
     {
         var strKeyWord:String = baseParam.paramString
-        if (webSources?.parsingPatterns?.firstPageIsZero)!
+        if (webSources?.parsingPatterns?.getSearchBookResult?.firstPageIsZero)!
         {
             if(baseParam.paramInt > 0)
             {
@@ -45,7 +45,7 @@ class BookMountainEngine:NSObject {
         }
         
         
-        strKeyWord = getEncodedString(strSource: strKeyWord, strEncoding: webSources!.requestEncoding!)
+        strKeyWord = getEncodedString(strSource: strKeyWord, strEncoding: (self.webSources?.parsingPatterns?.getSearchBookResult?.requestEncoding)!)
         
         let strPage:String = String(stringInterpolationSegment: baseParam.paramInt)
         let strUrl:String = String(format: (webSources?.searhURL)!, arguments: [strKeyWord,strPage])
@@ -53,7 +53,7 @@ class BookMountainEngine:NSObject {
         
         var dicParam = strUrl.urlParameters
         var baseUrl = strUrl.baseUrl
-        if(webSources?.userParamDic == false)
+        if(webSources?.parsingPatterns?.getSearchBookResult?.userParamDic == false)
         {
             dicParam = nil
             baseUrl = strUrl
@@ -75,7 +75,7 @@ class BookMountainEngine:NSObject {
             }
             
             //  if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
-            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: self.webSources!.parsingPatterns!.responseListEncoding))
+            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: (self.webSources!.parsingPatterns!.getSearchBookResult?.responseEncoding)!))
             {
                 print("Data: \(contentText)")
                 
@@ -90,16 +90,11 @@ class BookMountainEngine:NSObject {
     }
     
     
-    
-    
-    
-    
-    
     func getBookList(strSource:String)->[BCTBookModel]
     {
         var bookList:[BCTBookModel] = []
         
-        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.list) as! [String]
+        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.getSearchBookResult!.booklist) as! [String]
         
         for subStrSource in arySource
         {
@@ -114,22 +109,24 @@ class BookMountainEngine:NSObject {
     {
         let book:BCTBookModel = BCTBookModel()
         
-        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.title)
-        book.imgSrc = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.imageSrc)
-        book.bookLink = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.bookLink)
-        if(webSources!.parsingPatterns!.bookLinkFunction != "")
-        {
-            
-            
-            book.bookLink = self.getUseJavascriptFunc(strFunctionName: "getBookLink", strFuncImp: (webSources?.parsingPatterns?.bookLinkFunction)!, strParams: [book.bookLink])
-            
-            
-        }
+//        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.title)
         
-        book.author = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.author)
+        self.webSources?.parsingPatterns?.getSearchBookResult?.bookTitle?.inputParam = strSource
+        book.title = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getSearchBookResult?.bookTitle)!)
+        
+        self.webSources?.parsingPatterns?.getSearchBookResult?.imageSrc?.inputParam = strSource
+        book.imgSrc = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getSearchBookResult?.imageSrc)!)
+        
+        self.webSources?.parsingPatterns?.getSearchBookResult?.bookLink?.inputParam = strSource
+        book.bookLink = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getSearchBookResult?.bookLink)!)
+        
+        self.webSources?.parsingPatterns?.getSearchBookResult?.author?.inputParam = strSource
+        book.author = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getSearchBookResult?.author)!)
         book.author = BCTBookAnalyzer.dealDatailString(book.author)
-        book.memo = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.memo)
         
+        
+        self.webSources?.parsingPatterns?.getSearchBookResult?.memo?.inputParam = strSource
+        book.memo = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getSearchBookResult?.memo)!)
         book.memo = BCTBookAnalyzer.dealDatailString(book.memo)
         
         return book
@@ -155,7 +152,7 @@ class BookMountainEngine:NSObject {
             }
             
             //            if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632))
-            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: self.webSources!.parsingPatterns!.responseChapterListEncoding))
+            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: (self.webSources!.parsingPatterns!.getBookChapterList?.responseEncoding)!))
             {
                 print("Data: \(contentText)")
                 baseParam.paramArray = self.getChapterList(strSource: contentText,strUrl: baseParam.paramString) as! NSMutableArray
@@ -170,7 +167,7 @@ class BookMountainEngine:NSObject {
     {
         var aryChapterList:[BCTBookChapterModel] = []
         do {
-            let regular:NSRegularExpression =  try NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.chapterItem)!, options: NSRegularExpression.Options.caseInsensitive)
+            let regular:NSRegularExpression =  try NSRegularExpression(pattern: (self.webSources?.parsingPatterns?.getBookChapterList!.parsing)!, options: NSRegularExpression.Options.caseInsensitive)
             let results = regular.matches(in: strSource, range: NSMakeRange(0, strSource.characters.count))
             
             let strSourceNS = strSource as NSString
@@ -184,8 +181,6 @@ class BookMountainEngine:NSObject {
                     
                 }
                 
-                //
-                //              bookchaptermodel.url = strSource.substring(with: indexRange)
                 bookchaptermodel.title = strSourceNS.substring(with: match.rangeAt(2)) as String
                 bookchaptermodel.hostUrl = self.webSources!.baseURL!
                 
@@ -221,7 +216,7 @@ class BookMountainEngine:NSObject {
             }
             
             //            if let data = response.data, let contentText = String(data: data, encoding: String.Encoding(rawValue: 0x80000632))
-            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: self.webSources!.parsingPatterns!.responseChapterDetailEncoding))
+            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: (self.webSources!.parsingPatterns!.getBookChapterDetail?.responseEncoding)!))
             {
                 print("Data: \(contentText)")
                 baseParam.resultString = self.getChapterContent(strSource: contentText)
@@ -234,7 +229,7 @@ class BookMountainEngine:NSObject {
     }
     
     func getChapterContent(strSource:String)->String {
-        let strContent = BCTBookAnalyzer.getStrGroup1(strSource, pattern: self.webSources?.parsingPatterns?.chapterDetail)
+        let strContent = BCTBookAnalyzer.getStrGroup1(strSource, pattern: self.webSources?.parsingPatterns?.getBookChapterDetail?.parsing)
         return strContent!
     }
     
@@ -247,12 +242,7 @@ class BookMountainEngine:NSObject {
     // MARK:- getCategoryBooksResult
     func getCategoryBooksResult(baseParam:BMBaseParam)
     {
-        
-        //                let str:String = String("http://zhannei.baidu.com/cse/search?q=校花&s=8253726671271885340&nsid=0&isNeedCheckDomain=1&jump=1")
-        //                let dic2 = str.urlParameters
-        
         let strUrl:String = String(format: baseParam.paramString, baseParam.paramInt)
-        
         Alamofire.request(strUrl).response{ response in
             
             if(response.error != nil)
@@ -267,7 +257,7 @@ class BookMountainEngine:NSObject {
                 }
                 return
             }
-            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: self.webSources!.parsingPatterns!.responseCategoryBooksResult))
+            if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: (self.webSources!.parsingPatterns!.getCategoryBooksResult?.responseEncoding)!))
             {
                 print("Data: \(contentText)")
                 
@@ -286,7 +276,7 @@ class BookMountainEngine:NSObject {
     {
         var bookList:[BCTBookModel] = []
         
-        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.categoryList) as! [String]
+        let arySource:[String] = BCTBookAnalyzer.getStrGroupAry(strSource, pattern: webSources?.parsingPatterns?.getCategoryBooksResult!.booklist) as! [String]
         
         for subStrSource in arySource
         {
@@ -301,34 +291,30 @@ class BookMountainEngine:NSObject {
     {
         let book:BCTBookModel = BCTBookModel()
         
-        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListTitle)
+        //        book.title = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.title)
         
-        book.bookLink = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListbookLink)
-        if(webSources!.parsingPatterns!.categorybookLinkFunction != "")
+        self.webSources?.parsingPatterns?.getCategoryBooksResult?.bookTitle?.inputParam = strSource
+        book.title = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.bookTitle)!)
+
+        self.webSources?.parsingPatterns?.getCategoryBooksResult?.bookLink?.inputParam = strSource
+        book.bookLink = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.bookLink)!)
+        
+        self.webSources?.parsingPatterns?.getCategoryBooksResult?.imageSrc?.inputParam = strSource
+        if(self.webSources?.parsingPatterns?.getCategoryBooksResult?.imageSrc?.inputKey.isEmpty == false)
         {
-            
-            
-            book.bookLink = self.getUseJavascriptFunc(strFunctionName: "getBookLink", strFuncImp: (webSources?.parsingPatterns?.bookLinkFunction)!, strParams: [book.bookLink])
-            
-            
+            self.webSources?.parsingPatterns?.getCategoryBooksResult?.imageSrc?.inputParam = book.value(forKey: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.imageSrc?.inputKey)!) as! String
         }
+        book.imgSrc = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.imageSrc)!)
         
-        book.author = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.categoryListAuthor)
+        self.webSources?.parsingPatterns?.getCategoryBooksResult?.author?.inputParam = strSource
+        book.author = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.author)!)
         book.author = BCTBookAnalyzer.dealDatailString(book.author)
         
-        book.memo = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.memo)
         
+        self.webSources?.parsingPatterns?.getCategoryBooksResult?.memo?.inputParam = strSource
+        book.memo = getRetString(byBookParsingItem: (self.webSources?.parsingPatterns?.getCategoryBooksResult?.memo)!)
         book.memo = BCTBookAnalyzer.dealDatailString(book.memo)
         
-        if(webSources?.parsingPatterns?.categoryListImageFunction.isEmpty == false)
-        {
-            
-            book.imgSrc = self.getUseJavascriptFunc(strFunctionName: "getImageUrl", strFuncImp: (webSources!.parsingPatterns?.categoryListImageFunction)!, strParams: [book.bookLink])
-        }
-        else
-        {
-            book.imgSrc = BCTBookAnalyzer.getStrGroup1(strSource, pattern: webSources?.parsingPatterns?.imageSrc)
-        }
         
         return book
     }
@@ -376,6 +362,24 @@ class BookMountainEngine:NSObject {
     }
     
     
+    func getRetString(byBookParsingItem bookparsingitem:BookParsingItem) -> String
+    {
+        var strRet : String = ""
+        if(bookparsingitem.inputKey.isEmpty == true)
+        {
+            strRet = BCTBookAnalyzer.getStrGroup1(bookparsingitem.inputParam, pattern: bookparsingitem.parsing)
+        }
+        else
+        {
+            strRet = bookparsingitem.inputParam
+        }
+        if(bookparsingitem.parsingFuntionName.isEmpty == false)
+        {
+            strRet = self.getUseJavascriptFunc(strFunctionName: bookparsingitem.parsingFuntionName, strFuncImp: (bookparsingitem.parsingFuntion), strParams: [strRet])
+        }
+        return strRet
+        
+    }
     
     
     

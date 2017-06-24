@@ -15,7 +15,7 @@ import XCTest
 class BookMountainTests: XCTestCase {
     
     
-    static var unitTestTimeout:CGFloat = 20
+    static var unitTestTimeout:CGFloat = 1220
     static var unitTestEnableLogging:Bool = false
     
     override func setUp() {
@@ -25,36 +25,36 @@ class BookMountainTests: XCTestCase {
     
     
     
-        func testSearchKey()
-        {
-            let expect = self.expectation(description: "testSearchKey")
-            let baseparam:BMBaseParam = BMBaseParam()
-            baseparam.paramString = "校花"
-            baseparam.paramInt = 1
-
-                    baseparam.withresult = {(errorId)->Void in
-            
-                                    if(errorId == 0)
-                                    {
-                                        print("调用成功")
-            
-                                    }
-                                    else
-                                    {
-            
-                                    }
-                    
-//                    expect.fulfill()
-                    }
-            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
-            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
-            dicParam.setParam(baseparam)
-            BMControl.sharedInstance().excute(dicParam)
-            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
-                expect.fulfill()
-                print(error ?? "")
-            }
-        }
+//        func testSearchKey()
+//        {
+//            let expect = self.expectation(description: "testSearchKey")
+//            let baseparam:BMBaseParam = BMBaseParam()
+//            baseparam.paramString = "校花"
+//            baseparam.paramInt = 1
+//
+//                    baseparam.withresult = {(errorId)->Void in
+//            
+//                                    if(errorId == 0)
+//                                    {
+//                                        print("调用成功")
+//            
+//                                    }
+//                                    else
+//                                    {
+//            
+//                                    }
+//                    
+////                    expect.fulfill()
+//                    }
+//            let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+//            dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETSEARCHBOOKRESULT)
+//            dicParam.setParam(baseparam)
+//            BMControl.sharedInstance().excute(dicParam)
+//            self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+//                expect.fulfill()
+//                print(error ?? "")
+//            }
+//        }
     
 //        func testBookChapterList()
 //        {
@@ -163,6 +163,44 @@ class BookMountainTests: XCTestCase {
 //                                        }
 //        
 //    }
+    
+    func testDownloadBook()
+    {
+        let expect = self.expectation(description: "testDownloadBook")
+        
+        let book:BCTBookModel = BCTBookModel()
+        //        chapter.url = "http://www.7788xs.org/read/48937/12066621.html"
+        book.title = "校花是九尾狐"
+        book.imgSrc = "http://www.23us.com/files/article/image/32/32642/32642s.jpg"
+        book.bookLink = "http://www.23us.com/html/32/32642/"
+        
+        
+        //        http://www.23us.com/html/3/3764/1276761.html
+        //        http://www.23us.com/html/12/12100/9864883.html
+        //        http://www.7788xs.org/read/48937/12066621.html
+        let baseparam:BMBaseParam = BMBaseParam()
+        baseparam.paramString = book.bookLink
+        baseparam.paramObject = book
+        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+            if(errorId == 0){
+                print("调用成功")
+                print(baseparam.paramObject)
+            }
+            else{
+            }
+            //expect.fulfill()
+            
+        }
+        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_DOWNLOADBOOK)
+        dicParam.setParam(baseparam)
+        BMControl.sharedInstance().excute(dicParam)
+        
+        self.waitForExpectations(timeout: TimeInterval(BookMountainTests.unitTestTimeout)) { (error) in
+            print(error ?? "")
+        }
+    }
+
     
     
     override func tearDown() {

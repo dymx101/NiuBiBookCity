@@ -11,7 +11,7 @@ import UIKit
 let DESCRIPTION = "description"
 let ORDER = "order"
 let CATEGORYNAME = "categoryname"
-let URL = "url"
+let Url = "url"
 let URLARY = "urlAry"
 
 class BCTBookCategoryModel: NSObject {

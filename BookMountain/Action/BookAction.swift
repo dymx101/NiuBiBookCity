@@ -27,6 +27,12 @@ class BookAction: NSObject {
         BookMountainEngineManager.shared.getCategoryBooksResult(baseParam: baseParam)
     }
     
+    public func downloadBook(baseParam:BMBaseParam)
+    {
+        BookMountainEngineManager.shared.downloadBook(baseParam: baseParam)
+    }
+
+    
     public func testIt()
     {
         print("12312312313123")

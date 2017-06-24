@@ -15,6 +15,7 @@
 		836ABC681EFA5ADC00C00545 /* GetBookListPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */; };
 		836D8DB21EEBEA1300E849F0 /* bookCityConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 836D8DB11EEBEA1300E849F0 /* bookCityConfig.plist */; };
 		836D8DB41EEBEE1900E849F0 /* BCTBookCityConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */; };
+		83744A9C1EFCE0DC00328BFE /* BookDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83744A9B1EFCE0DC00328BFE /* BookDownloadManager.swift */; };
 		83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */; };
 		83A9C06D1EDEABA500222660 /* InvokeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C06C1EDEABA500222660 /* InvokeTest.m */; };
 		83B744D61EDAADB90058E115 /* BookMountainEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B744D51EDAADB90058E115 /* BookMountainEngineManager.swift */; };
@@ -75,6 +76,7 @@
 		836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookListPatterns.swift; sourceTree = "<group>"; };
 		836D8DB11EEBEA1300E849F0 /* bookCityConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bookCityConfig.plist; sourceTree = "<group>"; };
 		836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTBookCityConfig.swift; sourceTree = "<group>"; };
+		83744A9B1EFCE0DC00328BFE /* BookDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDownloadManager.swift; sourceTree = "<group>"; };
 		83A9C0691EDE9AAE00222660 /* FSPublicUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPublicUtil.swift; sourceTree = "<group>"; };
 		83A9C06B1EDEABA500222660 /* InvokeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvokeTest.h; sourceTree = "<group>"; };
 		83A9C06C1EDEABA500222660 /* InvokeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvokeTest.m; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				836D8DB31EEBEE1900E849F0 /* BCTBookCityConfig.swift */,
 				831653B91EFA1247003709EE /* BookParsingItem.swift */,
 				836ABC671EFA5ADC00C00545 /* GetBookListPatterns.swift */,
+				83744A9B1EFCE0DC00328BFE /* BookDownloadManager.swift */,
 			);
 			path = BookMountainEngine;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				83A9C06A1EDE9AAE00222660 /* FSPublicUtil.swift in Sources */,
 				83B745811EDABCED0058E115 /* BMBaseViewController.m in Sources */,
 				83017A5F1EDD61DE00C06496 /* NSObject+Util.swift in Sources */,
+				83744A9C1EFCE0DC00328BFE /* BookDownloadManager.swift in Sources */,
 				83B7457F1EDABCED0058E115 /* BMBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

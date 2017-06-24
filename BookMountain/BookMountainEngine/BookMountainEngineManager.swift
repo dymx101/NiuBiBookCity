@@ -102,6 +102,20 @@ class BookMountainEngineManager: NSObject {
 
     }
     
+    public func downloadBook(baseParam:BMBaseParam)
+    {
+        for engine in engineList
+        {
+            if(baseParam.paramString.contains((engine.webSources?.baseURL)!))
+            {
+                engine.downloadBook(baseParam: baseParam)
+                break
+            }
+        }
+
+        
+    }
+    
     
     override init() {
         super.init()

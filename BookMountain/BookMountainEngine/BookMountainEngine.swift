@@ -319,6 +319,235 @@ class BookMountainEngine:NSObject {
         return book
     }
     
+    // MARK:- downloadBook
+    func downloadBook(baseParam: BMBaseParam) {
+        let book: BCTBookModel? = (baseParam.paramObject as? BCTBookModel)
+        if book == nil {
+            if (baseParam.withresultobjectblock != nil) {
+                baseParam.withresultobjectblock(-1, "数据没有准备好，不要下载", nil)
+            }
+        }
+        
+        if(book!.aryChapterList.count>0)
+        {
+//            downloadImp(bookmodel: book)
+            self.downloadPlist(baseParam: baseParam)
+        }
+        else
+        {
+            self.getChapters(bookmodel: book!, finish: { () -> (Void) in
+                //self.downloadImp(bookmodel: book)
+                self.downloadPlist(baseParam: baseParam)
+            })
+        }
+        
+    }
+    
+//    func downloadImp(bookmodel book:BCTBookModel)
+//    {
+//        let baseparam:BMBaseParam = BMBaseParam()
+//        
+//        baseparam.paramObject = book
+////        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+////            if(errorId == 0){
+////                print("调用成功")
+////            }
+////            else{
+////            }
+////            
+////        }
+////        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+////        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_DOWNLOADPLIST)
+////        dicParam.setParam(baseparam)
+////        BMControl.sharedInstance().excute(dicParam)
+//    }
+    
+    func getChapters(bookmodel book:BCTBookModel,finish:@escaping(()->(Void)))
+    {
+        
+        let baseparam:BMBaseParam = BMBaseParam()
+        
+        //http://www.23us.com/html/3/3764/
+        //            baseparam.paramString = "http://www.7788xs.org/read/48937.html"
+        baseparam.paramString = book.bookLink
+        baseparam.withresultobjectblock = {(errorId,messge,id)->Void in
+            
+            if(errorId == 0)
+            {
+                book.aryChapterList = baseparam.paramArray as! [Any]
+                finish()
+            }
+            else
+            {
+                
+            }
+            
+        }
+//        let dicParam:NSMutableDictionary = NSMutableDictionary.createParamDic()
+//        dicParam.setActionID(FSPublicUtil.DEF_ACTIONID_BOOKACTION, strcmd: FSPublicUtil.DEF_ACTIONIDCMD_GETBOOKCHAPTERLIST)
+//        dicParam.setParam(baseparam)
+        self.getBookChapterList(baseParam: baseparam)
+        
+        
+//        BMControl.sharedInstance().excute(dicParam)
+    }
+    
+    
+    func downloadPlist(baseParam: BMBaseParam) {
+        let bookmodel: BCTBookModel? = (baseParam.paramObject as? BCTBookModel)
+        if bookmodel == nil || bookmodel?.aryChapterList.count == 0 {
+            if (baseParam.withresultobjectblock != nil) {
+                baseParam.withresultobjectblock(-1, "数据没有准备好，不要下载", nil)
+            }
+        }
+        // Start downloading book
+        bookmodel?.finishChapterNumber = 0
+        downloadChapterOnePage(baseParam, book: bookmodel!)
+    }
+    
+    func downloadChapterOnePage(_ baseParam: BMBaseParam, book bookmodel: BCTBookModel) {
+        let pageSize: Int = 10
+        let curPageEnd: Int = bookmodel.finishChapterNumber + pageSize
+//        let sessionManager: BCTSessionManager? = self.sessionManager()
+        weak var weakSelf: BookMountainEngine? = self
+        var i: Int = bookmodel.finishChapterNumber
+        while i < curPageEnd && i < bookmodel.aryChapterList.count {
+//            if DYMBookDownloadManager.sharedInstance().downloadingBook == nil {
+//                break
+//            }
+            let bookchaptermodel: BCTBookChapterModel? = (bookmodel.aryChapterList[i] as? BCTBookChapterModel)
+            i += 1
+            //        usleep(100);
+            // Get chapter url
+            let strUrl: String? = bookchaptermodel?.url
+//            strUrl = strUrl?.replacingOccurrences(of: sessionManager?.getBaseUrl(), with: "")
+            // completion block
+            
+            let closure: (_ baseParam:BMBaseParam,_ bookModel: BCTBookModel) -> Void = { (baseParam, bookModel) in
+                // code
+                bookmodel.finishChapterNumber += 1
+                if(baseParam.withresultobjectblock != nil)
+                {
+                    var strMessage = "downloading";
+                    var errorCode = 0
+                    if(bookmodel.finishChapterNumber == bookmodel.aryChapterList.count)
+                    {
+                        if(bookmodel.savePlist())
+                        {
+                            strMessage = "finished"
+                        }
+                        else
+                        {
+                            errorCode = -1
+                        }
+                        
+                    }
+                    else
+                    {
+                        if(bookmodel.finishChapterNumber == curPageEnd) {
+                            //[weakSelf downloadChapterOnePage:baseParam book:bookmodel];
+                            weakSelf?.downloadChapterOnePage(baseParam, book: bookmodel)
+                        }
+                    }
+                    baseParam.withresultobjectblock(Int32(errorCode), strMessage, nil);
+                }
+            }
+            
+            
+            Alamofire.request(strUrl!).response{ response in
+                
+                if(response.error == nil)
+                {
+                    if let data = response.data, let contentText = String(data: data, encoding: self.getStringEncoding(strEncodingDescribe: (self.webSources!.parsingPatterns!.getBookChapterDetail?.responseEncoding)!))
+                    {
+                        print("Data: \(contentText)")
+                        bookchaptermodel?.htmlContent = self.getChapterContent(strSource: contentText)
+                        
+                        bookchaptermodel?.content = self.getChapterContentText(strSource: (bookchaptermodel?.htmlContent)!)
+                        
+                    }
+
+                }
+                
+                closure(baseParam,bookmodel)
+            }
+
+            
+        }
+    }
+    
+    
+//    -(void)downloadChapterOnePage:(BMBaseParam*)baseParam
+//    book:(BCTBookModel*)bookmodel {
+//    NSInteger pageSize = 10;
+//    NSInteger curPageEnd = bookmodel.finishChapterNumber + pageSize;
+//    BCTSessionManager *sessionManager = [self sessionManager];
+//    
+//    __weak id<BCIBookEngine> weakSelf = self;
+//    NSInteger i = bookmodel.finishChapterNumber;
+//    while (i < curPageEnd && i < [bookmodel.aryChapterList count]) {
+//    
+//    if ([DYMBookDownloadManager sharedInstance].downloadingBook == nil) {
+//    break;
+//    }
+//    
+//    BCTBookChapterModel* bookchaptermodel = [bookmodel.aryChapterList objectAtIndex:i];
+//    i++;
+//    //        usleep(100);
+//    
+//    // Get chapter url
+//    NSString *strUrl = bookchaptermodel.url;
+//    strUrl = [strUrl stringByReplacingOccurrencesOfString:[sessionManager getBaseUrl] withString:@""];
+//    
+//    // completion block
+//    void (^completionBlock)(BMBaseParam *baseParam, BCTBookModel *bookmodel) = ^void(BMBaseParam *baseParam, BCTBookModel *bookmodel) {
+//    
+//    bookmodel.finishChapterNumber++;
+//    
+//    if (baseParam.withresultobjectblock) {
+//    if (bookmodel.finishChapterNumber == [bookmodel.aryChapterList count]) {
+//    
+//    [bookmodel savePlist];
+//    
+//    baseParam.withresultobjectblock(0, @"finished", nil);
+//    
+//    } else {
+//    
+//    if(bookmodel.finishChapterNumber == curPageEnd) {
+//    [weakSelf downloadChapterOnePage:baseParam book:bookmodel];
+//    }
+//    
+//    baseParam.withresultobjectblock(0, @"downloading", nil);
+//    }
+//    }
+//    };
+//    
+//    // Start downloading
+//    id task = [sessionManager GET:strUrl parameters:nil success:^(NSURLSessionDataTask * __unused task, id responseObject) {
+//    
+//    NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:0x80000632];
+//    
+//    //modify by fx
+//    if(responseStr.length==0)
+//    {
+//    responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//    }
+//    
+//    bookchaptermodel.htmlContent = [weakSelf getChapterContent:responseStr];
+//    bookchaptermodel.content = [weakSelf getChapterContentText:bookchaptermodel.htmlContent];
+//    
+//    completionBlock(baseParam, bookmodel);
+//    
+//    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+//    
+//    NSLog(@"%@",[error userInfo]);
+//    
+//    completionBlock(baseParam, bookmodel);
+//    }];
+//    
+//    [[DYMBookDownloadManager sharedInstance] registerDownloadingTask:task];
+//    }
+//    }
     
     // MARK:- UtilFunction
     
@@ -380,6 +609,8 @@ class BookMountainEngine:NSObject {
         return strRet
         
     }
+    
+    
     
     
     
